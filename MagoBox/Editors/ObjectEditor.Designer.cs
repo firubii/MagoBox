@@ -429,6 +429,7 @@
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(114, 20);
             this.type.TabIndex = 2;
+            this.type.TextChanged += new System.EventHandler(this.type_TextChanged);
             // 
             // label1
             // 
@@ -447,6 +448,7 @@
             this.objDropDown.Name = "objDropDown";
             this.objDropDown.Size = new System.Drawing.Size(148, 21);
             this.objDropDown.TabIndex = 0;
+            this.objDropDown.SelectedIndexChanged += new System.EventHandler(this.objDropDown_SelectedIndexChanged);
             // 
             // ObjectEditor
             // 

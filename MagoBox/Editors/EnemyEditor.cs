@@ -14,6 +14,7 @@ namespace MagoBox.Editors
     public partial class EnemyEditor : Form
     {
         public RDLLVL.Enemy obj;
+        Objects objs = new Objects();
 
         public EnemyEditor()
         {
@@ -22,6 +23,8 @@ namespace MagoBox.Editors
 
         private void ObjectEditor_Load(object sender, EventArgs e)
         {
+            objDropDown.Items.AddRange(objs.EnemyList.Values.ToArray());
+
             type.Text = obj.Type.ToString();
             behavior.Text = obj.Behavior.ToString();
             p1.Text = obj.Param1.ToString();
@@ -51,6 +54,27 @@ namespace MagoBox.Editors
             obj.Y = (uint)yCoord.Value;
             obj.YOffset = (uint)yOffs.Value;
             DialogResult = DialogResult.OK;
+        }
+
+        private void type_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (objs.EnemyList.ContainsKey(uint.Parse(type.Text)))
+                {
+                    objDropDown.Text = objs.EnemyList[uint.Parse(type.Text)];
+                }
+                else
+                {
+                    objDropDown.Text = "";
+                }
+            }
+            catch { }
+        }
+
+        private void objDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type.Text = objs.EnemyList.FirstOrDefault(x => x.Value == objDropDown.Text).Key.ToString();
         }
     }
 }

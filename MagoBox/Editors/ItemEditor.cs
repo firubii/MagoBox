@@ -14,6 +14,7 @@ namespace MagoBox.Editors
     public partial class ItemEditor : Form
     {
         public RDLLVL.Item obj;
+        Objects objs = new Objects();
 
         public ItemEditor()
         {
@@ -22,6 +23,8 @@ namespace MagoBox.Editors
 
         private void ObjectEditor_Load(object sender, EventArgs e)
         {
+            objDropDown.Items.Add(objs.ItemList.Values.ToArray());
+
             type.Text = obj.Type.ToString();
             subtype.Text = obj.SubType.ToString();
             behavior.Text = obj.Behavior.ToString();
@@ -43,6 +46,27 @@ namespace MagoBox.Editors
             obj.Y = (uint)yCoord.Value;
             obj.YOffset = (uint)yOffs.Value;
             DialogResult = DialogResult.OK;
+        }
+
+        private void type_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (objs.ItemList.ContainsKey(uint.Parse(type.Text)))
+                {
+                    objDropDown.Text = objs.ItemList[uint.Parse(type.Text)];
+                }
+                else
+                {
+                    objDropDown.Text = "";
+                }
+            }
+            catch { }
+        }
+
+        private void objDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type.Text = objs.ItemList.FirstOrDefault(x => x.Value == objDropDown.Text).Key.ToString();
         }
     }
 }

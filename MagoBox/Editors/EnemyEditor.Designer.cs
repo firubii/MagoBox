@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sizeEx = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.sizeAd = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.p2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.p1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.super = new System.Windows.Forms.CheckBox();
             this.movingId = new System.Windows.Forms.NumericUpDown();
             this.save = new System.Windows.Forms.Button();
@@ -46,22 +54,14 @@
             this.type = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.objDropDown = new System.Windows.Forms.ComboBox();
-            this.p1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.p2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.sizeAd = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.sizeEx = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeEx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeAd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movingId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yOffs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xOffs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xCoord)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeAd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeEx)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +97,80 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Object Properties";
+            // 
+            // sizeEx
+            // 
+            this.sizeEx.Location = new System.Drawing.Point(122, 149);
+            this.sizeEx.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.sizeEx.Name = "sizeEx";
+            this.sizeEx.Size = new System.Drawing.Size(114, 20);
+            this.sizeEx.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Size (EX)";
+            // 
+            // sizeAd
+            // 
+            this.sizeAd.Location = new System.Drawing.Point(122, 123);
+            this.sizeAd.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.sizeAd.Name = "sizeAd";
+            this.sizeAd.Size = new System.Drawing.Size(114, 20);
+            this.sizeAd.TabIndex = 44;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Size (AD)";
+            // 
+            // p2
+            // 
+            this.p2.Location = new System.Drawing.Point(122, 97);
+            this.p2.Name = "p2";
+            this.p2.Size = new System.Drawing.Size(114, 20);
+            this.p2.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Parameter 2";
+            // 
+            // p1
+            // 
+            this.p1.Location = new System.Drawing.Point(122, 71);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(114, 20);
+            this.p1.TabIndex = 40;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Parameter 1";
             // 
             // super
             // 
@@ -250,6 +324,7 @@
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(114, 20);
             this.type.TabIndex = 2;
+            this.type.TextChanged += new System.EventHandler(this.type_TextChanged);
             // 
             // label1
             // 
@@ -268,80 +343,7 @@
             this.objDropDown.Name = "objDropDown";
             this.objDropDown.Size = new System.Drawing.Size(148, 21);
             this.objDropDown.TabIndex = 0;
-            // 
-            // p1
-            // 
-            this.p1.Location = new System.Drawing.Point(122, 71);
-            this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(114, 20);
-            this.p1.TabIndex = 40;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Parameter 1";
-            // 
-            // p2
-            // 
-            this.p2.Location = new System.Drawing.Point(122, 97);
-            this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(114, 20);
-            this.p2.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Parameter 2";
-            // 
-            // sizeAd
-            // 
-            this.sizeAd.Location = new System.Drawing.Point(122, 123);
-            this.sizeAd.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.sizeAd.Name = "sizeAd";
-            this.sizeAd.Size = new System.Drawing.Size(114, 20);
-            this.sizeAd.TabIndex = 44;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 125);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "Size (AD)";
-            // 
-            // sizeEx
-            // 
-            this.sizeEx.Location = new System.Drawing.Point(122, 149);
-            this.sizeEx.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.sizeEx.Name = "sizeEx";
-            this.sizeEx.Size = new System.Drawing.Size(114, 20);
-            this.sizeEx.TabIndex = 46;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Size (EX)";
+            this.objDropDown.SelectedIndexChanged += new System.EventHandler(this.objDropDown_SelectedIndexChanged);
             // 
             // EnemyEditor
             // 
@@ -356,13 +358,13 @@
             this.Load += new System.EventHandler(this.ObjectEditor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeEx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeAd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movingId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yOffs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xOffs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xCoord)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeAd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeEx)).EndInit();
             this.ResumeLayout(false);
 
         }
