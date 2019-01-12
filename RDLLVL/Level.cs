@@ -21,6 +21,7 @@ namespace RDLLVL
         public List<Decoration> BLandDecoration = new List<Decoration>();
         public List<Decoration> MLandDecoration = new List<Decoration>();
         public List<Decoration> FLandDecoration = new List<Decoration>();
+        public byte[] DecorationChunk4;
         public List<byte> Unk_Decoration = new List<byte>();
         public List<Object> Objects = new List<Object>();
         public List<SpecialItem> SpecialItems = new List<SpecialItem>();
@@ -86,7 +87,7 @@ namespace RDLLVL
             {
                 Collision coll = new Collision();
                 coll.Shape = reader.ReadByte();
-                coll.Type = reader.ReadByte();
+                coll.Modifier = reader.ReadByte();
                 coll.Material = reader.ReadByte();
                 coll.AutoMoveSpeed = reader.ReadSByte();
                 TileCollision.Add(coll);
@@ -106,7 +107,7 @@ namespace RDLLVL
                 deco.Unk_2 = reader.ReadByte();
                 deco.Unk_3 = reader.ReadByte();
                 deco.MovingTerrainID = reader.ReadSByte();
-                BLandDecoration.Add(deco);
+                MLandDecoration.Add(deco);
             }
 
             reader.BaseStream.Seek(pos + 0x4, SeekOrigin.Begin);
@@ -118,7 +119,7 @@ namespace RDLLVL
                 deco.Unk_2 = reader.ReadByte();
                 deco.Unk_3 = reader.ReadByte();
                 deco.MovingTerrainID = reader.ReadSByte();
-                MLandDecoration.Add(deco);
+                FLandDecoration.Add(deco);
             }
 
             reader.BaseStream.Seek(pos + 0x8, SeekOrigin.Begin);
@@ -130,8 +131,14 @@ namespace RDLLVL
                 deco.Unk_2 = reader.ReadByte();
                 deco.Unk_3 = reader.ReadByte();
                 deco.MovingTerrainID = reader.ReadSByte();
-                FLandDecoration.Add(deco);
+                BLandDecoration.Add(deco);
             }
+
+            reader.BaseStream.Seek(pos + 0xC, SeekOrigin.Begin);
+            reader.BaseStream.Seek(reader.ReadUInt32(), SeekOrigin.Begin);
+            count = reader.ReadUInt32();
+            reader.BaseStream.Seek(-4, SeekOrigin.Current);
+            DecorationChunk4 = reader.ReadBytes((int)(0x40 * count) + 0xC);
 
             reader.BaseStream.Seek(0x28, SeekOrigin.Begin);
             reader.BaseStream.Seek(reader.ReadUInt32(), SeekOrigin.Begin);
@@ -240,6 +247,255 @@ namespace RDLLVL
                 item.YOffset = y[1];
                 Items.Add(item);
             }
+
+            reader.Dispose();
+            reader.Close();
+        }
+
+        public void Write(BigEndianBinaryWriter writer)
+        {
+            writer.Write(new byte[] {
+                0x58, 0x42, 0x49, 0x4E, 0x12, 0x34, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFD, 0xE9,
+                0x00, 0x00, 0x00, 0x22, 0x00, 0x00, 0x00, 0x3C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x68, 0x00, 0x00, 0xC0, 0x94, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x12, 0x34, 0x56, 0x78 });
+            writer.Write(Bosses.Count);
+            for (int i = 0; i < Bosses.Count; i++)
+            {
+                writer.Write(Bosses[i].Type);
+                writer.Write(Bosses[i].Param1);
+                writer.Write(Bosses[i].Param2);
+                writer.Write(Bosses[i].Param3);
+                writer.Write(Convert.ToUInt32(Bosses[i].HasSuperAbility));
+                writer.Write(ConvertCoords(new uint[] { Bosses[i].X, Bosses[i].XOffset }));
+                writer.Write(ConvertCoords(new uint[] { Bosses[i].Y, Bosses[i].YOffset }));
+            }
+            uint pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x18, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(SpecialItems.Count);
+            for (int i = 0; i < SpecialItems.Count; i++)
+            {
+                writer.Write(SpecialItems[i].Type);
+                writer.Write(SpecialItems[i].AppearID);
+                writer.Write(Convert.ToUInt32(SpecialItems[i].Respawn));
+                writer.Write(SpecialItems[i].MovingTerrainID);
+                writer.Write(ConvertCoords(new uint[] { SpecialItems[i].X, SpecialItems[i].XOffset }));
+                writer.Write(ConvertCoords(new uint[] { SpecialItems[i].Y, SpecialItems[i].YOffset }));
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x1C, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(1);
+            writer.Write((uint)writer.BaseStream.Position + 0x4);
+            writer.Write(Width);
+            writer.Write(Height);
+            for (int i = 0; i < TileCollision.Count; i++)
+            {
+                writer.Write(TileCollision[i].Shape);
+                writer.Write(TileCollision[i].Modifier);
+                writer.Write(TileCollision[i].Material);
+                writer.Write(TileCollision[i].AutoMoveSpeed);
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x20, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(0);
+            pos = (uint)writer.BaseStream.Position + (4 * 16);
+            for (int i = 0; i < 16; i++)
+            {
+                writer.Write(pos);
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x24, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Background);
+            writer.Write(Tileset);
+            pos = (uint)writer.BaseStream.Position;
+            writer.Write(pos + (4 * 4));
+            writer.Write(0);
+            writer.Write(0);
+            writer.Write(0);
+
+            writer.Write(Width);
+            writer.Write(Height);
+            for (int i = 0; i < MLandDecoration.Count; i++)
+            {
+                writer.Write(MLandDecoration[i].Unk_1);
+                writer.Write(MLandDecoration[i].Unk_2);
+                writer.Write(MLandDecoration[i].Unk_3);
+                writer.Write(MLandDecoration[i].MovingTerrainID);
+            }
+            writer.BaseStream.Seek(pos + 0x4, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Width);
+            writer.Write(Height);
+            for (int i = 0; i < FLandDecoration.Count; i++)
+            {
+                writer.Write(FLandDecoration[i].Unk_1);
+                writer.Write(FLandDecoration[i].Unk_2);
+                writer.Write(FLandDecoration[i].Unk_3);
+                writer.Write(FLandDecoration[i].MovingTerrainID);
+            }
+            writer.BaseStream.Seek(pos + 0x8, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Width);
+            writer.Write(Height);
+            for (int i = 0; i < BLandDecoration.Count; i++)
+            {
+                writer.Write(BLandDecoration[i].Unk_1);
+                writer.Write(BLandDecoration[i].Unk_2);
+                writer.Write(BLandDecoration[i].Unk_3);
+                writer.Write(BLandDecoration[i].MovingTerrainID);
+            }
+            writer.BaseStream.Seek(pos + 0xC, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(DecorationChunk4);
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x28, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Enemies.Count);
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                writer.Write(Enemies[i].Type);
+                writer.Write(Enemies[i].Behavior);
+                writer.Write(Enemies[i].Param1);
+                writer.Write(Enemies[i].Param2);
+                writer.Write(Enemies[i].SizeAD);
+                writer.Write(Enemies[i].SizeEX);
+                writer.Write(Enemies[i].MovingTerrainID);
+                writer.Write(Convert.ToUInt32(Enemies[i].HasSuperAbility));
+                writer.Write(ConvertCoords(new uint[] { Enemies[i].X, Enemies[i].XOffset }));
+                writer.Write(ConvertCoords(new uint[] { Enemies[i].Y, Enemies[i].YOffset }));
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x2C, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            uint bgmOffset = (uint)writer.BaseStream.Position;
+            writer.Write(0);
+            writer.Write(StageData.BgX);
+            writer.Write(StageData.BgY);
+            writer.Write(StageData.BgZ);
+            writer.Write(StageData.BgRotX);
+            writer.Write(StageData.BgRotY);
+            writer.Write(StageData.BgRotZ);
+            writer.Write(StageData.BgDistance);
+            writer.Write(StageData.BgScrollSpeedX);
+            writer.Write(StageData.BgScrollDownX);
+            writer.Write(StageData.BgScrollBackX);
+            writer.Write(StageData.BgScrollRightY);
+            writer.Write(StageData.BgScrollSpeedY);
+            writer.Write(StageData.BgScrollBackY);
+            writer.Write(StageData.Filter);
+            writer.Write(StageData.RunEffect);
+            writer.Write(StageData.DeathStepFlag);
+            writer.Write(StageData.DeathStepChange);
+            writer.Write(StageData.DeathStartID);
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x30, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            pos = (uint)writer.BaseStream.Position;
+            writer.Write(pos + (3 * 4));
+            writer.Write(0);
+            writer.Write(0);
+
+            writer.Write(Width);
+            writer.Write(Height);
+            for (int i = 0; i < TileBlock.Count; i++)
+            {
+                writer.Write(TileBlock[i].ID);
+            }
+            writer.BaseStream.Seek(pos + 0x4, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Objects.Count);
+            for (int i = 0; i < Objects.Count; i++)
+            {
+                writer.Write(Objects[i].Type);
+                writer.Write(ConvertCoords(new uint[] { Objects[i].X, Objects[i].XOffset }));
+                writer.Write(ConvertCoords(new uint[] { Objects[i].Y, Objects[i].YOffset }));
+                writer.Write(Objects[i].Param1);
+                writer.Write(Objects[i].Param2);
+                writer.Write(Objects[i].Param3);
+                writer.Write(Objects[i].Param4);
+                writer.Write(Objects[i].Param5);
+                writer.Write(Objects[i].Param6);
+                writer.Write(Objects[i].Param7);
+                writer.Write(Objects[i].Param8);
+                writer.Write(Objects[i].Param9);
+                writer.Write(Objects[i].Param10);
+                writer.Write(Objects[i].Param11);
+                writer.Write(Objects[i].Param12);
+                writer.Write(Objects[i].Unknown);
+            }
+            writer.BaseStream.Seek(pos + 0x8, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            uint offset = 0x0;
+            List<uint> actionTableOffsets = new List<uint>();
+            writer.Write(0);
+            for (int i = 0; i < 16; i++)
+            {
+                writer.Write((uint)writer.BaseStream.Length + 0x40 + offset);
+                offset += 0xC;
+                actionTableOffsets.Add((uint)writer.BaseStream.Length + 0x40 + offset);
+            }
+            for (int i = 0; i < 16; i++)
+            {
+                writer.Write(new byte[] { 0xFF, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00 });
+                writer.Write(actionTableOffsets[i]);
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(0x34, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+
+            writer.Write(Items.Count);
+            for (int i = 0; i < Items.Count; i++)
+            {
+                writer.Write(Items[i].Type);
+                writer.Write(Items[i].SubType);
+                writer.Write(Items[i].Behavior);
+                writer.Write(Items[i].MovingTerrainID);
+                writer.Write(ConvertCoords(new uint[] { Items[i].X, Items[i].XOffset }));
+                writer.Write(ConvertCoords(new uint[] { Items[i].Y, Items[i].YOffset }));
+            }
+            pos = (uint)writer.BaseStream.Position;
+            writer.BaseStream.Seek(bgmOffset, SeekOrigin.Begin);
+            writer.Write(pos);
+            writer.BaseStream.Seek(0, SeekOrigin.End);
+            writer.Write(StageData.BGM.Length);
+            writer.Write(Encoding.UTF8.GetBytes(StageData.BGM));
+            writer.Write(0);
+
+            writer.BaseStream.Seek(0x8, SeekOrigin.Begin);
+            writer.Write((uint)writer.BaseStream.Length);
+
+            writer.Flush();
+            writer.Dispose();
+            writer.Close();
         }
 
         private uint[] ConvertCoords(uint coord)
@@ -251,7 +507,7 @@ namespace RDLLVL
         private uint ConvertCoords(uint[] coord)
         {
             string c = coord[0].ToString("X7") + coord[1].ToString("X1");
-            return uint.Parse(c);
+            return uint.Parse(c, System.Globalization.NumberStyles.HexNumber);
         }
     }
 }

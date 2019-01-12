@@ -139,6 +139,20 @@ namespace MagoBox
             enemyList.EndUpdate();
         }
 
+        public void Save()
+        {
+            this.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+            this.Text = $"MagoBox - Saving {filePath}...";
+
+            BigEndianBinaryWriter writer = new BigEndianBinaryWriter(new FileStream(filePath, FileMode.Create));
+            level.Write(writer);
+
+            this.Enabled = true;
+            this.Text = $"MagoBox - {filePath}";
+            this.Cursor = Cursors.Arrow;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
@@ -177,6 +191,24 @@ namespace MagoBox
             }
         }
 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Kirby's Return to Dream Land Level Files|*.dat";
+            save.DefaultExt = ".dat";
+            save.Title = "Save Level File";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                filePath = save.FileName;
+                Save();
+            }
+        }
+
         private void glControl_Load(object sender, EventArgs e)
         {
             glControl.MakeCurrent();
@@ -195,8 +227,11 @@ namespace MagoBox
             }
 
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/ladder.png"));
+            modTexIds.Add(texturing.LoadTexture("Resources/modifiers/boundary.png"));
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/water.png"));
-            modTexIds.Add(texturing.LoadTexture("Resources/modifiers/damage.png"));
+            modTexIds.Add(texturing.LoadTexture("Resources/modifiers/spike.png"));
+            modTexIds.Add(texturing.LoadTexture("Resources/modifiers/ice.png"));
+            modTexIds.Add(texturing.LoadTexture("Resources/modifiers/lava.png"));
 
             objTexIds.Add(texturing.LoadTexture("Resources/obj/object.png"));
             objTexIds.Add(texturing.LoadTexture("Resources/obj/specialItem.png"));
@@ -242,7 +277,7 @@ namespace MagoBox
 
                 Vector2 vec_scale = new Vector2(1.0f, 1.0f);
 
-                for(int ty = tileStartY; ty < tileEndY; ty++)
+                for (int ty = tileStartY; ty < tileEndY; ty++)
                 {
                     for (int tx = tileStartX; tx < tileEndX; tx++)
                     {
@@ -250,18 +285,30 @@ namespace MagoBox
                         Collision c = level.TileCollision[ix];
                         Vector2 v = new Vector2(tx * 15f, -ty * 15f);
                         renderer.Draw(texIds[c.Shape], v, vec_scale, 17, 17);
-                        /*if((c.Modifier & (1 << 1)) != 0)
+                        if((c.Modifier & (1 << 1)) != 0)
                         {
                             renderer.Draw(modTexIds[0], v, vec_scale, 17, 17);
                         }
-                        if ((c.Modifier & (1 << 3)) != 0)
+                        if ((c.Modifier & (1 << 2)) != 0)
                         {
                             renderer.Draw(modTexIds[1], v, vec_scale, 17, 17);
                         }
-                        if ((c.Modifier & (1 << 6)) != 0)
+                        if ((c.Modifier & (1 << 3)) != 0)
                         {
                             renderer.Draw(modTexIds[2], v, vec_scale, 17, 17);
-                        }*/
+                        }
+                        if ((c.Modifier & (1 << 4)) != 0)
+                        {
+                            renderer.Draw(modTexIds[3], v, vec_scale, 17, 17);
+                        }
+                        if ((c.Modifier & (1 << 5)) != 0)
+                        {
+                            renderer.Draw(modTexIds[4], v, vec_scale, 17, 17);
+                        }
+                        if ((c.Modifier & (1 << 6)) != 0)
+                        {
+                            renderer.Draw(modTexIds[5], v, vec_scale, 17, 17);
+                        }
                     }
                 }
 
@@ -796,6 +843,78 @@ namespace MagoBox
             {
                 level.Enemies.Add(level.Enemies[enemyList.SelectedIndex]);
                 RefreshObjectLists();
+            }
+        }
+
+        private void objList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (level != null)
+            {
+                if (objList.SelectedItem != null)
+                {
+                    editObj_Click(this, new EventArgs());
+                }
+            }
+        }
+
+        private void specItemList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (level != null)
+            {
+                if (specItemList.SelectedItem != null)
+                {
+                    editSpecItem_Click(this, new EventArgs());
+                }
+            }
+        }
+
+        private void itemList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (level != null)
+            {
+                if (itemList.SelectedItem != null)
+                {
+                    editItem_Click(this, new EventArgs());
+                }
+            }
+        }
+
+        private void bossList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (level != null)
+            {
+                if (bossList.SelectedItem != null)
+                {
+                    editBoss_Click(this, new EventArgs());
+                }
+            }
+        }
+
+        private void enemyList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (level != null)
+            {
+                if (enemyList.SelectedItem != null)
+                {
+                    editEnemy_Click(this, new EventArgs());
+                }
+            }
+        }
+
+        private void stageSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (level != null)
+            {
+                StageSettings settings = new StageSettings();
+                settings.data = level.StageData;
+                settings.background = level.Background;
+                settings.tileset = level.Tileset;
+                if (settings.ShowDialog() == DialogResult.OK)
+                {
+                    level.StageData = settings.data;
+                    level.Background = settings.background;
+                    level.Tileset = settings.tileset;
+                }
             }
         }
 

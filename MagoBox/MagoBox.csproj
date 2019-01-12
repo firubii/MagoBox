@@ -82,6 +82,12 @@
     <Compile Include="Editors\SpecialItemEditor.Designer.cs">
       <DependentUpon>SpecialItemEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\StageSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\StageSettings.Designer.cs">
+      <DependentUpon>StageSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\SpecialItemEditor.resx">
       <DependentUpon>SpecialItemEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\StageSettings.resx">
+      <DependentUpon>StageSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -141,16 +150,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\modifiers\damage.png">
+    <None Include="Resources\modifiers\boundary.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\modifiers\ladder.png">
+    <None Include="Resources\modifiers\ice.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\modifiers\water.png">
+    <None Include="Resources\modifiers\lava.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\modifiers\spike.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Resources\move.png" />
+    <None Include="Resources\modifiers\ladder.png" />
+    <None Include="Resources\modifiers\water.png" />
     <None Include="Resources\obj\boss.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -89,7 +89,7 @@ namespace RDLLVL
     public struct Collision
     {
         public byte Shape;
-        public byte Type;
+        public byte Modifier;
         public byte Material;
         public sbyte AutoMoveSpeed;
     }

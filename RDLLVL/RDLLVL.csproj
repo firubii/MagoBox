@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BigEndianBinaryReader.cs" />
+    <Compile Include="BigEndianBinaryWriter.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Objects.cs" />

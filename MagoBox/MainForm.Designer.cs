@@ -79,6 +79,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.t0 = new System.Windows.Forms.Button();
             this.t1 = new System.Windows.Forms.Button();
             this.t2 = new System.Windows.Forms.Button();
@@ -136,7 +137,6 @@
             this.m2 = new System.Windows.Forms.Button();
             this.move = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -189,6 +189,7 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -198,12 +199,14 @@
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // stageSettingsToolStripMenuItem
             // 
             this.stageSettingsToolStripMenuItem.Name = "stageSettingsToolStripMenuItem";
             this.stageSettingsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.stageSettingsToolStripMenuItem.Text = "Stage Settings";
+            this.stageSettingsToolStripMenuItem.Click += new System.EventHandler(this.stageSettingsToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -294,6 +297,7 @@
             this.objList.Size = new System.Drawing.Size(248, 368);
             this.objList.TabIndex = 0;
             this.objList.SelectedIndexChanged += new System.EventHandler(this.objList_SelectedIndexChanged);
+            this.objList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.objList_MouseDoubleClick);
             // 
             // specItemTab
             // 
@@ -361,6 +365,7 @@
             this.specItemList.Size = new System.Drawing.Size(248, 368);
             this.specItemList.TabIndex = 4;
             this.specItemList.SelectedIndexChanged += new System.EventHandler(this.specItemList_SelectedIndexChanged);
+            this.specItemList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.specItemList_MouseDoubleClick);
             // 
             // itemTab
             // 
@@ -428,6 +433,7 @@
             this.itemList.Size = new System.Drawing.Size(248, 368);
             this.itemList.TabIndex = 4;
             this.itemList.SelectedIndexChanged += new System.EventHandler(this.itemList_SelectedIndexChanged);
+            this.itemList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.itemList_MouseDoubleClick);
             // 
             // bossTab
             // 
@@ -495,6 +501,7 @@
             this.bossList.Size = new System.Drawing.Size(248, 368);
             this.bossList.TabIndex = 4;
             this.bossList.SelectedIndexChanged += new System.EventHandler(this.bossList_SelectedIndexChanged);
+            this.bossList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.bossList_MouseDoubleClick);
             // 
             // enemyTab
             // 
@@ -562,6 +569,7 @@
             this.enemyList.Size = new System.Drawing.Size(248, 368);
             this.enemyList.TabIndex = 4;
             this.enemyList.SelectedIndexChanged += new System.EventHandler(this.enemyList_SelectedIndexChanged);
+            this.enemyList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.enemyList_MouseDoubleClick);
             // 
             // glControl
             // 
@@ -759,6 +767,15 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 443);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(505, 459);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Offset";
             // 
             // t0
             // 
@@ -1347,7 +1364,7 @@
             // m64
             // 
             this.m64.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.m64.BackgroundImage = global::MagoBox.Properties.Resources.damage;
+            this.m64.BackgroundImage = global::MagoBox.Properties.Resources.lava;
             this.m64.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.m64.Location = new System.Drawing.Point(208, 331);
             this.m64.Name = "m64";
@@ -1385,15 +1402,6 @@
             this.select.Size = new System.Drawing.Size(31, 31);
             this.select.TabIndex = 3;
             this.select.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(505, 459);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Offset";
             // 
             // MainForm
             // 

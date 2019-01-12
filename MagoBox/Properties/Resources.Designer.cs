@@ -583,9 +583,19 @@ namespace MagoBox.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap damage {
+        internal static System.Drawing.Bitmap boundary {
             get {
-                object obj = ResourceManager.GetObject("damage", resourceCulture);
+                object obj = ResourceManager.GetObject("boundary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ice {
+            get {
+                object obj = ResourceManager.GetObject("ice", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -596,6 +606,16 @@ namespace MagoBox.Properties {
         internal static System.Drawing.Bitmap ladder {
             get {
                 object obj = ResourceManager.GetObject("ladder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lava {
+            get {
+                object obj = ResourceManager.GetObject("lava", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -616,6 +636,16 @@ namespace MagoBox.Properties {
         internal static System.Drawing.Bitmap select {
             get {
                 object obj = ResourceManager.GetObject("select", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spike {
+            get {
+                object obj = ResourceManager.GetObject("spike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
