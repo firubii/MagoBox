@@ -79,7 +79,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
             this.t0 = new System.Windows.Forms.Button();
             this.t1 = new System.Windows.Forms.Button();
             this.t2 = new System.Windows.Forms.Button();
@@ -135,8 +134,17 @@
             this.m8 = new System.Windows.Forms.Button();
             this.m64 = new System.Windows.Forms.Button();
             this.m2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.move = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.Button();
+            this.renderSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderBlocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderTileModifiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderObjectPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderSpecialItemPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderItemPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderBossPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renderEnemyPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -157,7 +165,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.stageSettingsToolStripMenuItem});
+            this.stageSettingsToolStripMenuItem,
+            this.renderSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1138, 24);
@@ -768,15 +777,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 443);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(505, 459);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Offset";
-            // 
             // t0
             // 
             this.t0.BackgroundImage = global::MagoBox.Properties.Resources._0;
@@ -1385,6 +1385,15 @@
             this.m2.UseVisualStyleBackColor = false;
             this.m2.Click += new System.EventHandler(this.m2_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(505, 459);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Offset";
+            // 
             // move
             // 
             this.move.BackgroundImage = global::MagoBox.Properties.Resources.move;
@@ -1402,6 +1411,83 @@
             this.select.Size = new System.Drawing.Size(31, 31);
             this.select.TabIndex = 3;
             this.select.UseVisualStyleBackColor = true;
+            // 
+            // renderSettingsToolStripMenuItem
+            // 
+            this.renderSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.renderTileModifiersToolStripMenuItem,
+            this.renderBlocksToolStripMenuItem,
+            this.renderObjectPointsToolStripMenuItem,
+            this.renderSpecialItemPointsToolStripMenuItem,
+            this.renderItemPointsToolStripMenuItem,
+            this.renderBossPointsToolStripMenuItem,
+            this.renderEnemyPointsToolStripMenuItem});
+            this.renderSettingsToolStripMenuItem.Name = "renderSettingsToolStripMenuItem";
+            this.renderSettingsToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.renderSettingsToolStripMenuItem.Text = "Render Settings";
+            // 
+            // renderBlocksToolStripMenuItem
+            // 
+            this.renderBlocksToolStripMenuItem.Checked = true;
+            this.renderBlocksToolStripMenuItem.CheckOnClick = true;
+            this.renderBlocksToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderBlocksToolStripMenuItem.Name = "renderBlocksToolStripMenuItem";
+            this.renderBlocksToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderBlocksToolStripMenuItem.Text = "Render Blocks";
+            // 
+            // renderTileModifiersToolStripMenuItem
+            // 
+            this.renderTileModifiersToolStripMenuItem.Checked = true;
+            this.renderTileModifiersToolStripMenuItem.CheckOnClick = true;
+            this.renderTileModifiersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderTileModifiersToolStripMenuItem.Name = "renderTileModifiersToolStripMenuItem";
+            this.renderTileModifiersToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderTileModifiersToolStripMenuItem.Text = "Render Tile Modifiers";
+            // 
+            // renderObjectPointsToolStripMenuItem
+            // 
+            this.renderObjectPointsToolStripMenuItem.Checked = true;
+            this.renderObjectPointsToolStripMenuItem.CheckOnClick = true;
+            this.renderObjectPointsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderObjectPointsToolStripMenuItem.Name = "renderObjectPointsToolStripMenuItem";
+            this.renderObjectPointsToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderObjectPointsToolStripMenuItem.Text = "Render Object Points";
+            // 
+            // renderSpecialItemPointsToolStripMenuItem
+            // 
+            this.renderSpecialItemPointsToolStripMenuItem.Checked = true;
+            this.renderSpecialItemPointsToolStripMenuItem.CheckOnClick = true;
+            this.renderSpecialItemPointsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderSpecialItemPointsToolStripMenuItem.Name = "renderSpecialItemPointsToolStripMenuItem";
+            this.renderSpecialItemPointsToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderSpecialItemPointsToolStripMenuItem.Text = "Render Special Item Points";
+            // 
+            // renderItemPointsToolStripMenuItem
+            // 
+            this.renderItemPointsToolStripMenuItem.Checked = true;
+            this.renderItemPointsToolStripMenuItem.CheckOnClick = true;
+            this.renderItemPointsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderItemPointsToolStripMenuItem.Name = "renderItemPointsToolStripMenuItem";
+            this.renderItemPointsToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderItemPointsToolStripMenuItem.Text = "Render Item Points";
+            // 
+            // renderBossPointsToolStripMenuItem
+            // 
+            this.renderBossPointsToolStripMenuItem.Checked = true;
+            this.renderBossPointsToolStripMenuItem.CheckOnClick = true;
+            this.renderBossPointsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderBossPointsToolStripMenuItem.Name = "renderBossPointsToolStripMenuItem";
+            this.renderBossPointsToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderBossPointsToolStripMenuItem.Text = "Render Boss Points";
+            // 
+            // renderEnemyPointsToolStripMenuItem
+            // 
+            this.renderEnemyPointsToolStripMenuItem.Checked = true;
+            this.renderEnemyPointsToolStripMenuItem.CheckOnClick = true;
+            this.renderEnemyPointsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.renderEnemyPointsToolStripMenuItem.Name = "renderEnemyPointsToolStripMenuItem";
+            this.renderEnemyPointsToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renderEnemyPointsToolStripMenuItem.Text = "Render Enemy Points";
             // 
             // MainForm
             // 
@@ -1562,6 +1648,14 @@
         private System.Windows.Forms.Button cloneBoss;
         private System.Windows.Forms.Button cloneEnemy;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem renderSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderBlocksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderTileModifiersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderObjectPointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderSpecialItemPointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderItemPointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderBossPointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renderEnemyPointsToolStripMenuItem;
     }
 }
 

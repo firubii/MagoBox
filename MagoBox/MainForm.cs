@@ -234,9 +234,27 @@ namespace MagoBox
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/ice.png"));
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/lava.png"));
 
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/unknown.png"));
             blockTexIds.Add(texturing.LoadTexture("Resources/blocks/star.png"));
             blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone2x2.png"));
             blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone3x3.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb_chain.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb_chain_invisible.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/breakable.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/fire.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/falling.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/ice.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/metal_falling.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super_top.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super_top2x2.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super2x2.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super1x2.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super3x3.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super4x2.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super4x4.png"));
 
             objTexIds.Add(texturing.LoadTexture("Resources/obj/object.png"));
             objTexIds.Add(texturing.LoadTexture("Resources/obj/specialItem.png"));
@@ -268,148 +286,252 @@ namespace MagoBox
             {
                 //Crop Tiles outside camera view.
                 int tileStartX = (int)Math.Max(0,Math.Floor(
-                        (camera.pos.X - glControl.Width/camera.zoom*0.5f)/15.0f
+                        (camera.pos.X - glControl.Width/camera.zoom*0.5f)/16.0f
                     ));
                 int tileEndX = (int)Math.Min(level.Width, Math.Ceiling(
-                        (camera.pos.X + glControl.Width / camera.zoom*0.5f) / 15.0f
+                        (camera.pos.X + glControl.Width / camera.zoom*0.5f) / 16.0f
                     ));
                 int tileStartY = (int)Math.Max(0, 1+Math.Floor(
-                        -(camera.pos.Y + glControl.Height / camera.zoom*0.5f) / 15.0f
+                        -(camera.pos.Y + glControl.Height / camera.zoom*0.5f) / 16.0f
                     ));
                 int tileEndY = (int)Math.Min(level.Height,1+ Math.Ceiling(
-                        -(camera.pos.Y - glControl.Height / camera.zoom*0.5f) / 15.0f
+                        -(camera.pos.Y - glControl.Height / camera.zoom*0.5f) / 16.0f
                     ));
 
                 Vector2 vec_scale = new Vector2(1.0f, 1.0f);
 
+                //Collisions
                 for (int ty = tileStartY; ty < tileEndY; ty++)
                 {
                     for (int tx = tileStartX; tx < tileEndX; tx++)
                     {
                         int ix = ty * (int)level.Width + tx;
                         Collision c = level.TileCollision[ix];
-                        Block b = level.TileBlock[ix];
-                        Vector2 v = new Vector2(tx * 15f, -ty * 15f);
+                        Vector2 v = new Vector2(tx * 16f, -ty * 16f);
+                        
                         renderer.Draw(texIds[c.Shape], v, vec_scale, 17, 17);
-                        //Modifiers
-                        if((c.Modifier & (1 << 1)) != 0)
-                        {
-                            renderer.Draw(modTexIds[0], v, vec_scale, 17, 17);
-                        }
-                        if ((c.Modifier & (1 << 2)) != 0)
-                        {
-                            renderer.Draw(modTexIds[1], v, vec_scale, 17, 17);
-                        }
-                        if ((c.Modifier & (1 << 3)) != 0)
-                        {
-                            renderer.Draw(modTexIds[2], v, vec_scale, 17, 17);
-                        }
-                        if ((c.Modifier & (1 << 4)) != 0)
-                        {
-                            renderer.Draw(modTexIds[3], v, vec_scale, 17, 17);
-                        }
-                        if ((c.Modifier & (1 << 5)) != 0)
-                        {
-                            renderer.Draw(modTexIds[4], v, vec_scale, 17, 17);
-                        }
-                        if ((c.Modifier & (1 << 6)) != 0)
-                        {
-                            renderer.Draw(modTexIds[5], v, vec_scale, 17, 17);
-                        }
                     }
                 }
 
                 //Blocks
-                for (int ty = tileStartY; ty < tileEndY; ty++)
+                if (renderBlocksToolStripMenuItem.Checked)
                 {
-                    for (int tx = tileStartX; tx < tileEndX; tx++)
+                    for (int ty = tileStartY; ty < tileEndY; ty++)
                     {
-                        int ix = ty * (int)level.Width + tx;
-                        Block b = level.TileBlock[ix];
-                        Vector2 v = new Vector2(tx * 15f, (-ty * 15f) + 1f);
-
-                        if (b.ID != -1)
+                        for (int tx = tileStartX; tx < tileEndX; tx++)
                         {
-                            if (b.ID == 0)
+                            int ix = ty * (int)level.Width + tx;
+                            Block b = level.TileBlock[ix];
+                            Vector2 v = new Vector2(tx * 16f, -ty * 16f);
+
+                            if (b.ID != -1)
                             {
-                                renderer.Draw(blockTexIds[0], v, vec_scale, 16, 16);
+                                if (b.ID == 0) //Star
+                                {
+                                    renderer.Draw(blockTexIds[1], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 2) //Stone 2x2
+                                {
+                                    renderer.Draw(blockTexIds[2], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                }
+                                else if (b.ID == 3 || b.ID == 56) //Super Destructible 2x2 (Covered)
+                                {
+                                    renderer.Draw(blockTexIds[14], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                }
+                                else if (b.ID == 4) //Stone
+                                {
+                                    renderer.Draw(blockTexIds[3], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 5) //Stone 3x3
+                                {
+                                    renderer.Draw(blockTexIds[4], v, vec_scale, 48, 48);
+                                }
+                                else if (b.ID == 7 || b.ID == 50) //Super Destructible 2x2
+                                {
+                                    renderer.Draw(blockTexIds[16], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                }
+                                else if (b.ID == 18) //Bomb
+                                {
+                                    renderer.Draw(blockTexIds[5], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 19) //Bomb Chain
+                                {
+                                    renderer.Draw(blockTexIds[6], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 20) //Bomb Chain (Invisible)
+                                {
+                                    renderer.Draw(blockTexIds[7], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 30) //Breakable
+                                {
+                                    renderer.Draw(blockTexIds[8], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 32) //Fire
+                                {
+                                    renderer.Draw(blockTexIds[9], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 33) //Falling
+                                {
+                                    renderer.Draw(blockTexIds[10], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 36) //Ice
+                                {
+                                    renderer.Draw(blockTexIds[11], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 47) //Metal Falling
+                                {
+                                    renderer.Draw(blockTexIds[12], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 48 || b.ID == 6 || b.ID == 1) //Super Destructible
+                                {
+                                    renderer.Draw(blockTexIds[15], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 49) //Super Destructible 1x2
+                                {
+                                    renderer.Draw(blockTexIds[17], v - new Vector2(0, 16f), vec_scale, 17, 33);
+                                }
+                                else if (b.ID == 52) //Super Destructible 4x2
+                                {
+                                    renderer.Draw(blockTexIds[19], v - new Vector2(0, 16f), vec_scale, 65, 33);
+                                }
+                                else if (b.ID == 55) //Super Destructible (Top Layer)
+                                {
+                                    renderer.Draw(blockTexIds[13], v, vec_scale, 17, 17);
+                                }
+                                else if (b.ID == 57) //Super Destructible 4x4
+                                {
+                                    renderer.Draw(blockTexIds[20], v - new Vector2(0, 48f), vec_scale, 65, 65);
+                                }
+                                else if (b.ID == 58) //Super Destructible 3x3
+                                {
+                                    renderer.Draw(blockTexIds[18], v - new Vector2(0, 32f), vec_scale, 49, 49);
+                                }
+                                else //Unknown
+                                {
+                                    renderer.Draw(blockTexIds[0], v, vec_scale, 17, 17);
+                                }
                             }
-                            else if (b.ID == 2)
+                        }
+                    }
+                }
+
+                //Modifiers
+                if (renderTileModifiersToolStripMenuItem.Checked)
+                {
+                    for (int ty = tileStartY; ty < tileEndY; ty++)
+                    {
+                        for (int tx = tileStartX; tx < tileEndX; tx++)
+                        {
+                            int ix = ty * (int)level.Width + tx;
+                            Collision c = level.TileCollision[ix];
+                            Vector2 v = new Vector2(tx * 16f, -ty * 16f);
+
+                            if ((c.Modifier & (1 << 1)) != 0) //Ladder
                             {
-                                renderer.Draw(blockTexIds[1], v - new Vector2(0, 15f), vec_scale, 31, 31);
+                                renderer.Draw(modTexIds[0], v, vec_scale, 17, 17);
                             }
-                            else if (b.ID == 4)
+                            if ((c.Modifier & (1 << 2)) != 0) //Boundary
                             {
-                                renderer.Draw(blockTexIds[2], v, vec_scale, 16, 16);
+                                renderer.Draw(modTexIds[1], v, vec_scale, 17, 17);
+                            }
+                            if ((c.Modifier & (1 << 3)) != 0) //Spike
+                            {
+                                renderer.Draw(modTexIds[2], v, vec_scale, 17, 17);
+                            }
+                            if ((c.Modifier & (1 << 4)) != 0) //Water
+                            {
+                                renderer.Draw(modTexIds[3], v, vec_scale, 17, 17);
+                            }
+                            if ((c.Modifier & (1 << 5)) != 0) //Ice
+                            {
+                                renderer.Draw(modTexIds[4], v, vec_scale, 17, 17);
+                            }
+                            if ((c.Modifier & (1 << 6)) != 0) //Lava
+                            {
+                                renderer.Draw(modTexIds[5], v, vec_scale, 17, 17);
                             }
                         }
-                        
                     }
                 }
 
-                for (int i = 0; i < level.Objects.Count; i++)
+                if (renderObjectPointsToolStripMenuItem.Checked)
                 {
-                    try
+                    for (int i = 0; i < level.Objects.Count; i++)
                     {
-                        renderer.Draw(objTexIds[0], new Vector2(((level.Objects[i].X * 15f) - 3f) + (level.Objects[i].XOffset * 0.95f), ((-level.Objects[i].Y * 15f) + 13f) - (level.Objects[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
-                        if (i == objList.SelectedIndex)
+                        try
                         {
-                            renderer.Draw(objTexIds[5], new Vector2(((level.Objects[i].X * 15f) - 3f) + (level.Objects[i].XOffset * 0.95f), ((-level.Objects[i].Y * 15f) + 13f) - (level.Objects[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            renderer.Draw(objTexIds[0], new Vector2(((level.Objects[i].X * 16f) - 3f) + (level.Objects[i].XOffset * 0.95f), ((-level.Objects[i].Y * 16f) + 13f) - (level.Objects[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            if (i == objList.SelectedIndex)
+                            {
+                                renderer.Draw(objTexIds[5], new Vector2(((level.Objects[i].X * 16f) - 3f) + (level.Objects[i].XOffset * 0.95f), ((-level.Objects[i].Y * 16f) + 13f) - (level.Objects[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
 
-                for (int i = 0; i < level.SpecialItems.Count; i++)
+                if (renderSpecialItemPointsToolStripMenuItem.Checked)
                 {
-                    try
+                    for (int i = 0; i < level.SpecialItems.Count; i++)
                     {
-                        renderer.Draw(objTexIds[1], new Vector2(((level.SpecialItems[i].X * 15f) - 3f) + (level.SpecialItems[i].XOffset * 0.95f), ((-level.SpecialItems[i].Y * 15f) + 13f) - (level.SpecialItems[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
-                        if (i == specItemList.SelectedIndex)
+                        try
                         {
-                            renderer.Draw(objTexIds[5], new Vector2(((level.SpecialItems[i].X * 15f) - 3f) + (level.SpecialItems[i].XOffset * 0.95f), ((-level.SpecialItems[i].Y * 15f) + 13f) - (level.SpecialItems[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            renderer.Draw(objTexIds[1], new Vector2(((level.SpecialItems[i].X * 16f) - 3f) + (level.SpecialItems[i].XOffset * 0.95f), ((-level.SpecialItems[i].Y * 16f) + 13f) - (level.SpecialItems[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            if (i == specItemList.SelectedIndex)
+                            {
+                                renderer.Draw(objTexIds[5], new Vector2(((level.SpecialItems[i].X * 16f) - 3f) + (level.SpecialItems[i].XOffset * 0.95f), ((-level.SpecialItems[i].Y * 16f) + 13f) - (level.SpecialItems[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
 
-                for (int i = 0; i < level.Items.Count; i++)
+                if (renderItemPointsToolStripMenuItem.Checked)
                 {
-                    try
+                    for (int i = 0; i < level.Items.Count; i++)
                     {
-                        renderer.Draw(objTexIds[2], new Vector2(((level.Items[i].X * 15f) - 3f) + (level.Items[i].XOffset * 0.95f), ((-level.Items[i].Y * 15f) + 13f) - (level.Items[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
-                        if (i == itemList.SelectedIndex)
+                        try
                         {
-                            renderer.Draw(objTexIds[5], new Vector2(((level.Items[i].X * 15f) - 3f) + (level.Items[i].XOffset * 0.95f), ((-level.Items[i].Y * 15f) + 13f) - (level.Items[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            renderer.Draw(objTexIds[2], new Vector2(((level.Items[i].X * 16f) - 3f) + (level.Items[i].XOffset * 0.95f), ((-level.Items[i].Y * 16f) + 13f) - (level.Items[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            if (i == itemList.SelectedIndex)
+                            {
+                                renderer.Draw(objTexIds[5], new Vector2(((level.Items[i].X * 16f) - 3f) + (level.Items[i].XOffset * 0.95f), ((-level.Items[i].Y * 16f) + 13f) - (level.Items[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
 
-                for (int i = 0; i < level.Bosses.Count; i++)
+                if (renderBossPointsToolStripMenuItem.Checked)
                 {
-                    try
+                    for (int i = 0; i < level.Bosses.Count; i++)
                     {
-                        renderer.Draw(objTexIds[3], new Vector2(((level.Bosses[i].X * 15f) - 3f) + (level.Bosses[i].XOffset * 0.95f), ((-level.Bosses[i].Y * 15f) + 13f) - (level.Bosses[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
-                        if (i == bossList.SelectedIndex)
+                        try
                         {
-                            renderer.Draw(objTexIds[5], new Vector2(((level.Bosses[i].X * 15f) - 3f) + (level.Bosses[i].XOffset * 0.95f), ((-level.Bosses[i].Y * 15f) + 13f) - (level.Bosses[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            renderer.Draw(objTexIds[3], new Vector2(((level.Bosses[i].X * 16f) - 3f) + (level.Bosses[i].XOffset * 0.95f), ((-level.Bosses[i].Y * 16f) + 13f) - (level.Bosses[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            if (i == bossList.SelectedIndex)
+                            {
+                                renderer.Draw(objTexIds[5], new Vector2(((level.Bosses[i].X * 16f) - 3f) + (level.Bosses[i].XOffset * 0.95f), ((-level.Bosses[i].Y * 16f) + 13f) - (level.Bosses[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
 
-                for (int i = 0; i < level.Enemies.Count; i++)
+                if (renderEnemyPointsToolStripMenuItem.Checked)
                 {
-                    try
+                    for (int i = 0; i < level.Enemies.Count; i++)
                     {
-                        renderer.Draw(objTexIds[4], new Vector2(((level.Enemies[i].X * 15f) - 3f) + (level.Enemies[i].XOffset * 0.95f), ((-level.Enemies[i].Y * 15f) + 13f) - (level.Enemies[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
-                        if (i == enemyList.SelectedIndex)
+                        try
                         {
-                            renderer.Draw(objTexIds[5], new Vector2(((level.Enemies[i].X * 15f) - 3f) + (level.Enemies[i].XOffset * 0.95f), ((-level.Enemies[i].Y * 15f) + 13f) - (level.Enemies[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            renderer.Draw(objTexIds[4], new Vector2(((level.Enemies[i].X * 16f) - 3f) + (level.Enemies[i].XOffset * 0.95f), ((-level.Enemies[i].Y * 16f) + 13f) - (level.Enemies[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            if (i == enemyList.SelectedIndex)
+                            {
+                                renderer.Draw(objTexIds[5], new Vector2(((level.Enemies[i].X * 16f) - 3f) + (level.Enemies[i].XOffset * 0.95f), ((-level.Enemies[i].Y * 16f) + 13f) - (level.Enemies[i].YOffset * 0.95f)), new Vector2(1f, 1f), 7, 7);
+                            }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
             }
 
