@@ -226,8 +226,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Resources\move.png" />
-    <None Include="Resources\modifiers\ladder.png" />
-    <None Include="Resources\modifiers\water.png" />
+    <None Include="Resources\modifiers\ladder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\modifiers\water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\obj\boss.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
