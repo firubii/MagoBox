@@ -25,6 +25,7 @@ namespace MagoBox
         List<int> texIds = new List<int>();
         List<int> modTexIds = new List<int>();
         List<int> objTexIds = new List<int>();
+        List<int> blockTexIds = new List<int>();
 
         Renderer renderer;
         Texturing texturing;
@@ -233,6 +234,10 @@ namespace MagoBox
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/ice.png"));
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/lava.png"));
 
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/star.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone2x2.png"));
+            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone.png"));
+
             objTexIds.Add(texturing.LoadTexture("Resources/obj/object.png"));
             objTexIds.Add(texturing.LoadTexture("Resources/obj/specialItem.png"));
             objTexIds.Add(texturing.LoadTexture("Resources/obj/item.png"));
@@ -283,8 +288,10 @@ namespace MagoBox
                     {
                         int ix = ty * (int)level.Width + tx;
                         Collision c = level.TileCollision[ix];
+                        Block b = level.TileBlock[ix];
                         Vector2 v = new Vector2(tx * 15f, -ty * 15f);
                         renderer.Draw(texIds[c.Shape], v, vec_scale, 17, 17);
+                        //Modifiers
                         if((c.Modifier & (1 << 1)) != 0)
                         {
                             renderer.Draw(modTexIds[0], v, vec_scale, 17, 17);
@@ -309,6 +316,34 @@ namespace MagoBox
                         {
                             renderer.Draw(modTexIds[5], v, vec_scale, 17, 17);
                         }
+                    }
+                }
+
+                //Blocks
+                for (int ty = tileStartY; ty < tileEndY; ty++)
+                {
+                    for (int tx = tileStartX; tx < tileEndX; tx++)
+                    {
+                        int ix = ty * (int)level.Width + tx;
+                        Block b = level.TileBlock[ix];
+                        Vector2 v = new Vector2(tx * 15f, (-ty * 15f) + 1f);
+
+                        if (b.ID != -1)
+                        {
+                            if (b.ID == 0)
+                            {
+                                renderer.Draw(blockTexIds[0], v, vec_scale, 16, 16);
+                            }
+                            else if (b.ID == 2)
+                            {
+                                renderer.Draw(blockTexIds[1], v - new Vector2(0, 15f), vec_scale, 31, 31);
+                            }
+                            else if (b.ID == 4)
+                            {
+                                renderer.Draw(blockTexIds[2], v, vec_scale, 16, 16);
+                            }
+                        }
+                        
                     }
                 }
 
