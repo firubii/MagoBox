@@ -23,7 +23,7 @@ namespace MagoBox.Editors
 
         private void ObjectEditor_Load(object sender, EventArgs e)
         {
-            objDropDown.Items.Add(objs.ItemList.Values.ToArray());
+            objDropDown.Items.AddRange(objs.ItemList.Values.ToArray());
 
             type.Text = obj.Type.ToString();
             subtype.Text = obj.SubType.ToString();
