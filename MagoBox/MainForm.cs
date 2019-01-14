@@ -25,7 +25,7 @@ namespace MagoBox
         List<int> texIds = new List<int>();
         List<int> modTexIds = new List<int>();
         List<int> objTexIds = new List<int>();
-        List<int> blockTexIds = new List<int>();
+        Dictionary<short, int> blockTexIds = new Dictionary<short, int>();
 
         Renderer renderer;
         Texturing texturing;
@@ -234,27 +234,31 @@ namespace MagoBox
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/ice.png"));
             modTexIds.Add(texturing.LoadTexture("Resources/modifiers/lava.png"));
 
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/unknown.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/star.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone2x2.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/stone3x3.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb_chain.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/bomb_chain_invisible.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/breakable.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/fire.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/falling.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/ice.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/metal_falling.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super_top.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super_top2x2.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super2x2.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super1x2.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super3x3.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super4x2.png"));
-            blockTexIds.Add(texturing.LoadTexture("Resources/blocks/super4x4.png"));
+            blockTexIds.Add(0xFF, texturing.LoadTexture("Resources/blocks/unknown.png"));
+            blockTexIds.Add(0, texturing.LoadTexture("Resources/blocks/star.png"));
+            blockTexIds.Add(1, texturing.LoadTexture("Resources/blocks/super.png"));
+            blockTexIds.Add(2, texturing.LoadTexture("Resources/blocks/stone2x2.png"));
+            blockTexIds.Add(3, texturing.LoadTexture("Resources/blocks/super_top2x2.png"));
+            blockTexIds.Add(4, texturing.LoadTexture("Resources/blocks/stone.png"));
+            blockTexIds.Add(5, texturing.LoadTexture("Resources/blocks/stone3x3.png"));
+            blockTexIds.Add(6, texturing.LoadTexture("Resources/blocks/super.png"));
+            blockTexIds.Add(7, texturing.LoadTexture("Resources/blocks/super2x2.png"));
+            blockTexIds.Add(18, texturing.LoadTexture("Resources/blocks/bomb.png"));
+            blockTexIds.Add(19, texturing.LoadTexture("Resources/blocks/bomb_chain.png"));
+            blockTexIds.Add(20, texturing.LoadTexture("Resources/blocks/bomb_chain_invisible.png"));
+            blockTexIds.Add(30, texturing.LoadTexture("Resources/blocks/breakable.png"));
+            blockTexIds.Add(32, texturing.LoadTexture("Resources/blocks/fire.png"));
+            blockTexIds.Add(33, texturing.LoadTexture("Resources/blocks/falling.png"));
+            blockTexIds.Add(36, texturing.LoadTexture("Resources/blocks/ice.png"));
+            blockTexIds.Add(47, texturing.LoadTexture("Resources/blocks/metal_falling.png"));
+            blockTexIds.Add(48, texturing.LoadTexture("Resources/blocks/super.png"));
+            blockTexIds.Add(49, texturing.LoadTexture("Resources/blocks/super1x2.png"));
+            blockTexIds.Add(50, texturing.LoadTexture("Resources/blocks/super2x2.png"));
+            blockTexIds.Add(52, texturing.LoadTexture("Resources/blocks/super4x2.png"));
+            blockTexIds.Add(55, texturing.LoadTexture("Resources/blocks/super_top.png"));
+            blockTexIds.Add(56, texturing.LoadTexture("Resources/blocks/super_top2x2.png"));
+            blockTexIds.Add(57, texturing.LoadTexture("Resources/blocks/super4x4.png"));
+            blockTexIds.Add(58, texturing.LoadTexture("Resources/blocks/super3x3.png"));
 
             objTexIds.Add(texturing.LoadTexture("Resources/obj/object.png"));
             objTexIds.Add(texturing.LoadTexture("Resources/obj/specialItem.png"));
@@ -326,89 +330,33 @@ namespace MagoBox
 
                             if (b.ID != -1)
                             {
-                                if (b.ID == 0) //Star
+                                if (b.ID == 2 || b.ID == 3 || b.ID == 7 || b.ID == 50 || b.ID == 56) //2x2
                                 {
-                                    renderer.Draw(blockTexIds[1], v, vec_scale, 17, 17);
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 33, 33);
                                 }
-                                else if (b.ID == 2) //Stone 2x2
+                                else if (b.ID == 49) //1x2
                                 {
-                                    renderer.Draw(blockTexIds[2], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 17, 33);
                                 }
-                                else if (b.ID == 3 || b.ID == 56) //Super Destructible 2x2 (Covered)
+                                else if (b.ID == 52) //4x2
                                 {
-                                    renderer.Draw(blockTexIds[14], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 65, 33);
                                 }
-                                else if (b.ID == 4) //Stone
+                                else if (b.ID == 57) //4x4
                                 {
-                                    renderer.Draw(blockTexIds[3], v, vec_scale, 17, 17);
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 48f), vec_scale, 65, 65);
                                 }
-                                else if (b.ID == 5) //Stone 3x3
+                                else if (b.ID == 58) //3x3
                                 {
-                                    renderer.Draw(blockTexIds[4], v, vec_scale, 48, 48);
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 32f), vec_scale, 49, 49);
                                 }
-                                else if (b.ID == 7 || b.ID == 50) //Super Destructible 2x2
+                                else if (blockTexIds.ContainsKey(b.ID))
                                 {
-                                    renderer.Draw(blockTexIds[16], v - new Vector2(0, 16f), vec_scale, 33, 33);
-                                }
-                                else if (b.ID == 18) //Bomb
-                                {
-                                    renderer.Draw(blockTexIds[5], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 19) //Bomb Chain
-                                {
-                                    renderer.Draw(blockTexIds[6], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 20) //Bomb Chain (Invisible)
-                                {
-                                    renderer.Draw(blockTexIds[7], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 30) //Breakable
-                                {
-                                    renderer.Draw(blockTexIds[8], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 32) //Fire
-                                {
-                                    renderer.Draw(blockTexIds[9], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 33) //Falling
-                                {
-                                    renderer.Draw(blockTexIds[10], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 36) //Ice
-                                {
-                                    renderer.Draw(blockTexIds[11], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 47) //Metal Falling
-                                {
-                                    renderer.Draw(blockTexIds[12], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 48 || b.ID == 6 || b.ID == 1) //Super Destructible
-                                {
-                                    renderer.Draw(blockTexIds[15], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 49) //Super Destructible 1x2
-                                {
-                                    renderer.Draw(blockTexIds[17], v - new Vector2(0, 16f), vec_scale, 17, 33);
-                                }
-                                else if (b.ID == 52) //Super Destructible 4x2
-                                {
-                                    renderer.Draw(blockTexIds[19], v - new Vector2(0, 16f), vec_scale, 65, 33);
-                                }
-                                else if (b.ID == 55) //Super Destructible (Top Layer)
-                                {
-                                    renderer.Draw(blockTexIds[13], v, vec_scale, 17, 17);
-                                }
-                                else if (b.ID == 57) //Super Destructible 4x4
-                                {
-                                    renderer.Draw(blockTexIds[20], v - new Vector2(0, 48f), vec_scale, 65, 65);
-                                }
-                                else if (b.ID == 58) //Super Destructible 3x3
-                                {
-                                    renderer.Draw(blockTexIds[18], v - new Vector2(0, 32f), vec_scale, 49, 49);
+                                    renderer.Draw(blockTexIds[b.ID], v, vec_scale, 17, 17);
                                 }
                                 else //Unknown
                                 {
-                                    renderer.Draw(blockTexIds[0], v, vec_scale, 17, 17);
+                                    renderer.Draw(blockTexIds[0xFF], v, vec_scale, 17, 17);
                                 }
                             }
                         }
