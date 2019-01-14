@@ -127,11 +127,11 @@ namespace MagoBox
                 }
             }
 
-            if (tabControl1.SelectedTab == objTab) objList.SelectedIndex = selIndex;
-            if (tabControl1.SelectedTab == specItemTab) specItemList.SelectedIndex = selIndex;
-            if (tabControl1.SelectedTab == itemTab) itemList.SelectedIndex = selIndex;
-            if (tabControl1.SelectedTab == bossTab) bossList.SelectedIndex = selIndex;
-            if (tabControl1.SelectedTab == enemyTab) enemyList.SelectedIndex = selIndex;
+            if (tabControl1.SelectedTab == objTab && objList.Items.Count >= selIndex + 1) objList.SelectedIndex = selIndex;
+            if (tabControl1.SelectedTab == specItemTab && specItemList.Items.Count >= selIndex + 1) specItemList.SelectedIndex = selIndex;
+            if (tabControl1.SelectedTab == itemTab && itemList.Items.Count >= selIndex + 1) itemList.SelectedIndex = selIndex;
+            if (tabControl1.SelectedTab == bossTab && bossList.Items.Count >= selIndex + 1) bossList.SelectedIndex = selIndex;
+            if (tabControl1.SelectedTab == enemyTab && enemyList.Items.Count >= selIndex + 1) enemyList.SelectedIndex = selIndex;
 
             objList.EndUpdate();
             specItemList.EndUpdate();
@@ -619,11 +619,14 @@ namespace MagoBox
             if (!a)
             {
                 a = true;
-                moveObj = 0;
-                xCoord.Value = level.Objects[objList.SelectedIndex].X;
-                xOffset.Value = level.Objects[objList.SelectedIndex].XOffset;
-                yCoord.Value = level.Objects[objList.SelectedIndex].Y;
-                yOffset.Value = level.Objects[objList.SelectedIndex].YOffset;
+                try
+                {
+                    moveObj = 0;
+                    xCoord.Value = level.Objects[objList.SelectedIndex].X;
+                    xOffset.Value = level.Objects[objList.SelectedIndex].XOffset;
+                    yCoord.Value = level.Objects[objList.SelectedIndex].Y;
+                    yOffset.Value = level.Objects[objList.SelectedIndex].YOffset;
+                } catch { }
                 specItemList.ClearSelected();
                 itemList.ClearSelected();
                 bossList.ClearSelected();
@@ -637,11 +640,14 @@ namespace MagoBox
             if (!a)
             {
                 a = true;
-                moveObj = 1;
-                xCoord.Value = level.SpecialItems[specItemList.SelectedIndex].X;
-                xOffset.Value = level.SpecialItems[specItemList.SelectedIndex].XOffset;
-                yCoord.Value = level.SpecialItems[specItemList.SelectedIndex].Y;
-                yOffset.Value = level.SpecialItems[specItemList.SelectedIndex].YOffset;
+                try
+                {
+                    moveObj = 1;
+                    xCoord.Value = level.SpecialItems[specItemList.SelectedIndex].X;
+                    xOffset.Value = level.SpecialItems[specItemList.SelectedIndex].XOffset;
+                    yCoord.Value = level.SpecialItems[specItemList.SelectedIndex].Y;
+                    yOffset.Value = level.SpecialItems[specItemList.SelectedIndex].YOffset;
+                } catch { }
                 objList.ClearSelected();
                 itemList.ClearSelected();
                 bossList.ClearSelected();
@@ -655,11 +661,14 @@ namespace MagoBox
             if (!a)
             {
                 a = true;
-                moveObj = 2;
-                xCoord.Value = level.Items[itemList.SelectedIndex].X;
-                xOffset.Value = level.Items[itemList.SelectedIndex].XOffset;
-                yCoord.Value = level.Items[itemList.SelectedIndex].Y;
-                yOffset.Value = level.Items[itemList.SelectedIndex].YOffset;
+                try
+                {
+                    moveObj = 2;
+                    xCoord.Value = level.Items[itemList.SelectedIndex].X;
+                    xOffset.Value = level.Items[itemList.SelectedIndex].XOffset;
+                    yCoord.Value = level.Items[itemList.SelectedIndex].Y;
+                    yOffset.Value = level.Items[itemList.SelectedIndex].YOffset;
+                } catch { }
                 objList.ClearSelected();
                 specItemList.ClearSelected();
                 bossList.ClearSelected();
@@ -673,11 +682,14 @@ namespace MagoBox
             if (!a)
             {
                 a = true;
-                moveObj = 3;
-                xCoord.Value = level.Bosses[bossList.SelectedIndex].X;
-                xOffset.Value = level.Bosses[bossList.SelectedIndex].XOffset;
-                yCoord.Value = level.Bosses[bossList.SelectedIndex].Y;
-                yOffset.Value = level.Bosses[bossList.SelectedIndex].YOffset;
+                try
+                {
+                    moveObj = 3;
+                    xCoord.Value = level.Bosses[bossList.SelectedIndex].X;
+                    xOffset.Value = level.Bosses[bossList.SelectedIndex].XOffset;
+                    yCoord.Value = level.Bosses[bossList.SelectedIndex].Y;
+                    yOffset.Value = level.Bosses[bossList.SelectedIndex].YOffset;
+                } catch { }
                 objList.ClearSelected();
                 specItemList.ClearSelected();
                 itemList.ClearSelected();
@@ -691,11 +703,14 @@ namespace MagoBox
             if (!a)
             {
                 a = true;
-                moveObj = 4;
-                xCoord.Value = level.Enemies[enemyList.SelectedIndex].X;
-                xOffset.Value = level.Enemies[enemyList.SelectedIndex].XOffset;
-                yCoord.Value = level.Enemies[enemyList.SelectedIndex].Y;
-                yOffset.Value = level.Enemies[enemyList.SelectedIndex].YOffset;
+                try
+                {
+                    moveObj = 4;
+                    xCoord.Value = level.Enemies[enemyList.SelectedIndex].X;
+                    xOffset.Value = level.Enemies[enemyList.SelectedIndex].XOffset;
+                    yCoord.Value = level.Enemies[enemyList.SelectedIndex].Y;
+                    yOffset.Value = level.Enemies[enemyList.SelectedIndex].YOffset;
+                } catch { }
                 objList.ClearSelected();
                 specItemList.ClearSelected();
                 itemList.ClearSelected();
