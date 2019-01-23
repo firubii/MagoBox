@@ -86,65 +86,44 @@
             this.yCoord = new System.Windows.Forms.NumericUpDown();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ice = new System.Windows.Forms.CheckBox();
+            this.spike = new System.Windows.Forms.CheckBox();
+            this.boundary = new System.Windows.Forms.CheckBox();
+            this.vmat = new System.Windows.Forms.NumericUpDown();
+            this.vautomove = new System.Windows.Forms.NumericUpDown();
+            this.vblock = new System.Windows.Forms.NumericUpDown();
+            this.d3_4 = new System.Windows.Forms.NumericUpDown();
+            this.d3_3 = new System.Windows.Forms.NumericUpDown();
+            this.d3_2 = new System.Windows.Forms.NumericUpDown();
+            this.d3_1 = new System.Windows.Forms.NumericUpDown();
+            this.d2_4 = new System.Windows.Forms.NumericUpDown();
+            this.d2_3 = new System.Windows.Forms.NumericUpDown();
+            this.d2_2 = new System.Windows.Forms.NumericUpDown();
+            this.d2_1 = new System.Windows.Forms.NumericUpDown();
+            this.d1_4 = new System.Windows.Forms.NumericUpDown();
+            this.d1_3 = new System.Windows.Forms.NumericUpDown();
+            this.d1_2 = new System.Windows.Forms.NumericUpDown();
+            this.d1_1 = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tiy = new System.Windows.Forms.NumericUpDown();
+            this.tix = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lava = new System.Windows.Forms.CheckBox();
+            this.water = new System.Windows.Forms.CheckBox();
+            this.ladder = new System.Windows.Forms.CheckBox();
+            this.vshape = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.move = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.m2 = new System.Windows.Forms.Button();
-            this.m64 = new System.Windows.Forms.Button();
-            this.m8 = new System.Windows.Forms.Button();
-            this.t51 = new System.Windows.Forms.Button();
-            this.t50 = new System.Windows.Forms.Button();
-            this.t49 = new System.Windows.Forms.Button();
-            this.t48 = new System.Windows.Forms.Button();
-            this.t47 = new System.Windows.Forms.Button();
-            this.t46 = new System.Windows.Forms.Button();
-            this.t45 = new System.Windows.Forms.Button();
-            this.t44 = new System.Windows.Forms.Button();
-            this.t43 = new System.Windows.Forms.Button();
-            this.t42 = new System.Windows.Forms.Button();
-            this.t41 = new System.Windows.Forms.Button();
-            this.t40 = new System.Windows.Forms.Button();
-            this.t39 = new System.Windows.Forms.Button();
-            this.t38 = new System.Windows.Forms.Button();
-            this.t37 = new System.Windows.Forms.Button();
-            this.t36 = new System.Windows.Forms.Button();
-            this.t35 = new System.Windows.Forms.Button();
-            this.t34 = new System.Windows.Forms.Button();
-            this.t33 = new System.Windows.Forms.Button();
-            this.t32 = new System.Windows.Forms.Button();
-            this.t31 = new System.Windows.Forms.Button();
-            this.t30 = new System.Windows.Forms.Button();
-            this.t29 = new System.Windows.Forms.Button();
-            this.t28 = new System.Windows.Forms.Button();
-            this.t27 = new System.Windows.Forms.Button();
-            this.t26 = new System.Windows.Forms.Button();
-            this.t25 = new System.Windows.Forms.Button();
-            this.t24 = new System.Windows.Forms.Button();
-            this.t23 = new System.Windows.Forms.Button();
-            this.t22 = new System.Windows.Forms.Button();
-            this.t21 = new System.Windows.Forms.Button();
-            this.t20 = new System.Windows.Forms.Button();
-            this.t19 = new System.Windows.Forms.Button();
-            this.t18 = new System.Windows.Forms.Button();
-            this.t17 = new System.Windows.Forms.Button();
-            this.t16 = new System.Windows.Forms.Button();
-            this.t15 = new System.Windows.Forms.Button();
-            this.t14 = new System.Windows.Forms.Button();
-            this.t13 = new System.Windows.Forms.Button();
-            this.t12 = new System.Windows.Forms.Button();
-            this.t11 = new System.Windows.Forms.Button();
-            this.t10 = new System.Windows.Forms.Button();
-            this.t9 = new System.Windows.Forms.Button();
-            this.t8 = new System.Windows.Forms.Button();
-            this.t7 = new System.Windows.Forms.Button();
-            this.t6 = new System.Windows.Forms.Button();
-            this.t5 = new System.Windows.Forms.Button();
-            this.t4 = new System.Windows.Forms.Button();
-            this.t3 = new System.Windows.Forms.Button();
-            this.t2 = new System.Windows.Forms.Button();
-            this.t1 = new System.Windows.Forms.Button();
-            this.t0 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -158,7 +137,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.yOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vmat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vblock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tix)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vshape)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -784,13 +780,465 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox2.Controls.Add(this.ice);
+            this.groupBox2.Controls.Add(this.spike);
+            this.groupBox2.Controls.Add(this.boundary);
+            this.groupBox2.Controls.Add(this.vmat);
+            this.groupBox2.Controls.Add(this.vautomove);
+            this.groupBox2.Controls.Add(this.vblock);
+            this.groupBox2.Controls.Add(this.d3_4);
+            this.groupBox2.Controls.Add(this.d3_3);
+            this.groupBox2.Controls.Add(this.d3_2);
+            this.groupBox2.Controls.Add(this.d3_1);
+            this.groupBox2.Controls.Add(this.d2_4);
+            this.groupBox2.Controls.Add(this.d2_3);
+            this.groupBox2.Controls.Add(this.d2_2);
+            this.groupBox2.Controls.Add(this.d2_1);
+            this.groupBox2.Controls.Add(this.d1_4);
+            this.groupBox2.Controls.Add(this.d1_3);
+            this.groupBox2.Controls.Add(this.d1_2);
+            this.groupBox2.Controls.Add(this.d1_1);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.tiy);
+            this.groupBox2.Controls.Add(this.tix);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lava);
+            this.groupBox2.Controls.Add(this.water);
+            this.groupBox2.Controls.Add(this.ladder);
+            this.groupBox2.Controls.Add(this.vshape);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(856, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(270, 464);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Collision Shapes";
+            // 
+            // ice
+            // 
+            this.ice.AutoSize = true;
+            this.ice.Location = new System.Drawing.Point(68, 121);
+            this.ice.Name = "ice";
+            this.ice.Size = new System.Drawing.Size(41, 17);
+            this.ice.TabIndex = 90;
+            this.ice.Text = "Ice";
+            this.ice.UseVisualStyleBackColor = true;
+            this.ice.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // spike
+            // 
+            this.spike.AutoSize = true;
+            this.spike.Location = new System.Drawing.Point(68, 98);
+            this.spike.Name = "spike";
+            this.spike.Size = new System.Drawing.Size(53, 17);
+            this.spike.TabIndex = 89;
+            this.spike.Text = "Spike";
+            this.spike.UseVisualStyleBackColor = true;
+            this.spike.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // boundary
+            // 
+            this.boundary.AutoSize = true;
+            this.boundary.Location = new System.Drawing.Point(68, 75);
+            this.boundary.Name = "boundary";
+            this.boundary.Size = new System.Drawing.Size(71, 17);
+            this.boundary.TabIndex = 88;
+            this.boundary.Text = "Boundary";
+            this.boundary.UseVisualStyleBackColor = true;
+            this.boundary.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // vmat
+            // 
+            this.vmat.Location = new System.Drawing.Point(58, 161);
+            this.vmat.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.vmat.Name = "vmat";
+            this.vmat.Size = new System.Drawing.Size(69, 20);
+            this.vmat.TabIndex = 87;
+            this.vmat.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // vautomove
+            // 
+            this.vautomove.Location = new System.Drawing.Point(5, 202);
+            this.vautomove.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.vautomove.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            -2147483648});
+            this.vautomove.Name = "vautomove";
+            this.vautomove.Size = new System.Drawing.Size(51, 20);
+            this.vautomove.TabIndex = 86;
+            this.vautomove.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // vblock
+            // 
+            this.vblock.Location = new System.Drawing.Point(5, 228);
+            this.vblock.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
+            this.vblock.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.vblock.Name = "vblock";
+            this.vblock.Size = new System.Drawing.Size(51, 20);
+            this.vblock.TabIndex = 85;
+            this.vblock.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.vblock.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d3_4
+            // 
+            this.d3_4.Location = new System.Drawing.Point(187, 304);
+            this.d3_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d3_4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.d3_4.Name = "d3_4";
+            this.d3_4.Size = new System.Drawing.Size(39, 20);
+            this.d3_4.TabIndex = 84;
+            this.d3_4.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d3_3
+            // 
+            this.d3_3.Location = new System.Drawing.Point(142, 304);
+            this.d3_3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d3_3.Name = "d3_3";
+            this.d3_3.Size = new System.Drawing.Size(39, 20);
+            this.d3_3.TabIndex = 83;
+            this.d3_3.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d3_2
+            // 
+            this.d3_2.Location = new System.Drawing.Point(97, 304);
+            this.d3_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d3_2.Name = "d3_2";
+            this.d3_2.Size = new System.Drawing.Size(39, 20);
+            this.d3_2.TabIndex = 82;
+            this.d3_2.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d3_1
+            // 
+            this.d3_1.Location = new System.Drawing.Point(52, 304);
+            this.d3_1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d3_1.Name = "d3_1";
+            this.d3_1.Size = new System.Drawing.Size(39, 20);
+            this.d3_1.TabIndex = 81;
+            this.d3_1.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d2_4
+            // 
+            this.d2_4.Location = new System.Drawing.Point(187, 278);
+            this.d2_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d2_4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.d2_4.Name = "d2_4";
+            this.d2_4.Size = new System.Drawing.Size(39, 20);
+            this.d2_4.TabIndex = 80;
+            this.d2_4.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d2_3
+            // 
+            this.d2_3.Location = new System.Drawing.Point(142, 278);
+            this.d2_3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_3.Name = "d2_3";
+            this.d2_3.Size = new System.Drawing.Size(39, 20);
+            this.d2_3.TabIndex = 79;
+            this.d2_3.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d2_2
+            // 
+            this.d2_2.Location = new System.Drawing.Point(97, 278);
+            this.d2_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_2.Name = "d2_2";
+            this.d2_2.Size = new System.Drawing.Size(39, 20);
+            this.d2_2.TabIndex = 78;
+            this.d2_2.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d2_1
+            // 
+            this.d2_1.Location = new System.Drawing.Point(52, 278);
+            this.d2_1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_1.Name = "d2_1";
+            this.d2_1.Size = new System.Drawing.Size(39, 20);
+            this.d2_1.TabIndex = 77;
+            this.d2_1.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d1_4
+            // 
+            this.d1_4.Location = new System.Drawing.Point(187, 252);
+            this.d1_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d1_4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.d1_4.Name = "d1_4";
+            this.d1_4.Size = new System.Drawing.Size(39, 20);
+            this.d1_4.TabIndex = 76;
+            this.d1_4.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d1_3
+            // 
+            this.d1_3.Location = new System.Drawing.Point(142, 252);
+            this.d1_3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d1_3.Name = "d1_3";
+            this.d1_3.Size = new System.Drawing.Size(39, 20);
+            this.d1_3.TabIndex = 75;
+            this.d1_3.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d1_2
+            // 
+            this.d1_2.Location = new System.Drawing.Point(97, 252);
+            this.d1_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d1_2.Name = "d1_2";
+            this.d1_2.Size = new System.Drawing.Size(39, 20);
+            this.d1_2.TabIndex = 74;
+            this.d1_2.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // d1_1
+            // 
+            this.d1_1.Location = new System.Drawing.Point(52, 252);
+            this.d1_1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d1_1.Name = "d1_1";
+            this.d1_1.Size = new System.Drawing.Size(39, 20);
+            this.d1_1.TabIndex = 73;
+            this.d1_1.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 306);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 13);
+            this.label13.TabIndex = 72;
+            this.label13.Text = "FLand";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 280);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 71;
+            this.label12.Text = "MLand";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 254);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "BLand";
+            // 
+            // tiy
+            // 
+            this.tiy.Location = new System.Drawing.Point(6, 395);
+            this.tiy.Name = "tiy";
+            this.tiy.Size = new System.Drawing.Size(50, 20);
+            this.tiy.TabIndex = 69;
+            this.tiy.ValueChanged += new System.EventHandler(this.tSel_ValueChanged);
+            // 
+            // tix
+            // 
+            this.tix.Location = new System.Drawing.Point(6, 369);
+            this.tix.Name = "tix";
+            this.tix.Size = new System.Drawing.Size(50, 20);
+            this.tix.TabIndex = 68;
+            this.tix.ValueChanged += new System.EventHandler(this.tSel_ValueChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(62, 230);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Block";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(62, 397);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 13);
+            this.label9.TabIndex = 66;
+            this.label9.Text = "Y";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 371);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 13);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "X";
+            // 
+            // lava
+            // 
+            this.lava.AutoSize = true;
+            this.lava.Location = new System.Drawing.Point(6, 121);
+            this.lava.Name = "lava";
+            this.lava.Size = new System.Drawing.Size(50, 17);
+            this.lava.TabIndex = 64;
+            this.lava.Text = "Lava";
+            this.lava.UseVisualStyleBackColor = true;
+            this.lava.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // water
+            // 
+            this.water.AutoSize = true;
+            this.water.Location = new System.Drawing.Point(6, 98);
+            this.water.Name = "water";
+            this.water.Size = new System.Drawing.Size(55, 17);
+            this.water.TabIndex = 63;
+            this.water.Text = "Water";
+            this.water.UseVisualStyleBackColor = true;
+            this.water.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // ladder
+            // 
+            this.ladder.AutoSize = true;
+            this.ladder.Location = new System.Drawing.Point(6, 75);
+            this.ladder.Name = "ladder";
+            this.ladder.Size = new System.Drawing.Size(59, 17);
+            this.ladder.TabIndex = 62;
+            this.ladder.Text = "Ladder";
+            this.ladder.UseVisualStyleBackColor = true;
+            this.ladder.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // vshape
+            // 
+            this.vshape.Location = new System.Drawing.Point(58, 36);
+            this.vshape.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.vshape.Name = "vshape";
+            this.vshape.Size = new System.Drawing.Size(69, 20);
+            this.vshape.TabIndex = 61;
+            this.vshape.ValueChanged += new System.EventHandler(this.UpdateTile);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(62, 204);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 13);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Auto Move Speed";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(133, 163);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Collision Material";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(133, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Collision Shape";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 144);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(50, 50);
+            this.button3.TabIndex = 57;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(6, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.TabIndex = 56;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -818,676 +1266,6 @@
             this.select.Size = new System.Drawing.Size(31, 31);
             this.select.TabIndex = 3;
             this.select.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.t0);
-            this.flowLayoutPanel1.Controls.Add(this.t1);
-            this.flowLayoutPanel1.Controls.Add(this.t2);
-            this.flowLayoutPanel1.Controls.Add(this.t3);
-            this.flowLayoutPanel1.Controls.Add(this.t4);
-            this.flowLayoutPanel1.Controls.Add(this.t5);
-            this.flowLayoutPanel1.Controls.Add(this.t6);
-            this.flowLayoutPanel1.Controls.Add(this.t7);
-            this.flowLayoutPanel1.Controls.Add(this.t8);
-            this.flowLayoutPanel1.Controls.Add(this.t9);
-            this.flowLayoutPanel1.Controls.Add(this.t10);
-            this.flowLayoutPanel1.Controls.Add(this.t11);
-            this.flowLayoutPanel1.Controls.Add(this.t12);
-            this.flowLayoutPanel1.Controls.Add(this.t13);
-            this.flowLayoutPanel1.Controls.Add(this.t14);
-            this.flowLayoutPanel1.Controls.Add(this.t15);
-            this.flowLayoutPanel1.Controls.Add(this.t16);
-            this.flowLayoutPanel1.Controls.Add(this.t17);
-            this.flowLayoutPanel1.Controls.Add(this.t18);
-            this.flowLayoutPanel1.Controls.Add(this.t19);
-            this.flowLayoutPanel1.Controls.Add(this.t20);
-            this.flowLayoutPanel1.Controls.Add(this.t21);
-            this.flowLayoutPanel1.Controls.Add(this.t22);
-            this.flowLayoutPanel1.Controls.Add(this.t23);
-            this.flowLayoutPanel1.Controls.Add(this.t24);
-            this.flowLayoutPanel1.Controls.Add(this.t25);
-            this.flowLayoutPanel1.Controls.Add(this.t26);
-            this.flowLayoutPanel1.Controls.Add(this.t27);
-            this.flowLayoutPanel1.Controls.Add(this.t28);
-            this.flowLayoutPanel1.Controls.Add(this.t29);
-            this.flowLayoutPanel1.Controls.Add(this.t30);
-            this.flowLayoutPanel1.Controls.Add(this.t31);
-            this.flowLayoutPanel1.Controls.Add(this.t32);
-            this.flowLayoutPanel1.Controls.Add(this.t33);
-            this.flowLayoutPanel1.Controls.Add(this.t34);
-            this.flowLayoutPanel1.Controls.Add(this.t35);
-            this.flowLayoutPanel1.Controls.Add(this.t36);
-            this.flowLayoutPanel1.Controls.Add(this.t37);
-            this.flowLayoutPanel1.Controls.Add(this.t38);
-            this.flowLayoutPanel1.Controls.Add(this.t39);
-            this.flowLayoutPanel1.Controls.Add(this.t40);
-            this.flowLayoutPanel1.Controls.Add(this.t41);
-            this.flowLayoutPanel1.Controls.Add(this.t42);
-            this.flowLayoutPanel1.Controls.Add(this.t43);
-            this.flowLayoutPanel1.Controls.Add(this.t44);
-            this.flowLayoutPanel1.Controls.Add(this.t45);
-            this.flowLayoutPanel1.Controls.Add(this.t46);
-            this.flowLayoutPanel1.Controls.Add(this.t47);
-            this.flowLayoutPanel1.Controls.Add(this.t48);
-            this.flowLayoutPanel1.Controls.Add(this.t49);
-            this.flowLayoutPanel1.Controls.Add(this.t50);
-            this.flowLayoutPanel1.Controls.Add(this.t51);
-            this.flowLayoutPanel1.Controls.Add(this.m8);
-            this.flowLayoutPanel1.Controls.Add(this.m64);
-            this.flowLayoutPanel1.Controls.Add(this.m2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 14);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 443);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // m2
-            // 
-            this.m2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.m2.BackgroundImage = global::MagoBox.Properties.Resources.ladder;
-            this.m2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.m2.Location = new System.Drawing.Point(3, 372);
-            this.m2.Name = "m2";
-            this.m2.Size = new System.Drawing.Size(35, 35);
-            this.m2.TabIndex = 54;
-            this.m2.UseVisualStyleBackColor = false;
-            this.m2.Click += new System.EventHandler(this.m2_Click);
-            // 
-            // m64
-            // 
-            this.m64.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.m64.BackgroundImage = global::MagoBox.Properties.Resources.lava;
-            this.m64.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.m64.Location = new System.Drawing.Point(208, 331);
-            this.m64.Name = "m64";
-            this.m64.Size = new System.Drawing.Size(35, 35);
-            this.m64.TabIndex = 53;
-            this.m64.UseVisualStyleBackColor = false;
-            this.m64.Click += new System.EventHandler(this.m64_Click);
-            // 
-            // m8
-            // 
-            this.m8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.m8.BackgroundImage = global::MagoBox.Properties.Resources.water;
-            this.m8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.m8.Location = new System.Drawing.Point(167, 331);
-            this.m8.Name = "m8";
-            this.m8.Size = new System.Drawing.Size(35, 35);
-            this.m8.TabIndex = 52;
-            this.m8.UseVisualStyleBackColor = false;
-            this.m8.Click += new System.EventHandler(this.m8_Click);
-            // 
-            // t51
-            // 
-            this.t51.BackgroundImage = global::MagoBox.Properties.Resources._51;
-            this.t51.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t51.Location = new System.Drawing.Point(126, 331);
-            this.t51.Name = "t51";
-            this.t51.Size = new System.Drawing.Size(35, 35);
-            this.t51.TabIndex = 49;
-            this.t51.UseVisualStyleBackColor = true;
-            this.t51.Click += new System.EventHandler(this.t51_Click);
-            // 
-            // t50
-            // 
-            this.t50.BackgroundImage = global::MagoBox.Properties.Resources._50;
-            this.t50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t50.Location = new System.Drawing.Point(85, 331);
-            this.t50.Name = "t50";
-            this.t50.Size = new System.Drawing.Size(35, 35);
-            this.t50.TabIndex = 48;
-            this.t50.UseVisualStyleBackColor = true;
-            this.t50.Click += new System.EventHandler(this.t50_Click);
-            // 
-            // t49
-            // 
-            this.t49.BackgroundImage = global::MagoBox.Properties.Resources._49;
-            this.t49.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t49.Location = new System.Drawing.Point(44, 331);
-            this.t49.Name = "t49";
-            this.t49.Size = new System.Drawing.Size(35, 35);
-            this.t49.TabIndex = 47;
-            this.t49.UseVisualStyleBackColor = true;
-            this.t49.Click += new System.EventHandler(this.t49_Click);
-            // 
-            // t48
-            // 
-            this.t48.BackgroundImage = global::MagoBox.Properties.Resources._48;
-            this.t48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t48.Location = new System.Drawing.Point(3, 331);
-            this.t48.Name = "t48";
-            this.t48.Size = new System.Drawing.Size(35, 35);
-            this.t48.TabIndex = 46;
-            this.t48.UseVisualStyleBackColor = true;
-            this.t48.Click += new System.EventHandler(this.t48_Click);
-            // 
-            // t47
-            // 
-            this.t47.BackgroundImage = global::MagoBox.Properties.Resources._47;
-            this.t47.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t47.Location = new System.Drawing.Point(208, 290);
-            this.t47.Name = "t47";
-            this.t47.Size = new System.Drawing.Size(35, 35);
-            this.t47.TabIndex = 45;
-            this.t47.UseVisualStyleBackColor = true;
-            this.t47.Click += new System.EventHandler(this.t47_Click);
-            // 
-            // t46
-            // 
-            this.t46.BackgroundImage = global::MagoBox.Properties.Resources._46;
-            this.t46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t46.Location = new System.Drawing.Point(167, 290);
-            this.t46.Name = "t46";
-            this.t46.Size = new System.Drawing.Size(35, 35);
-            this.t46.TabIndex = 44;
-            this.t46.UseVisualStyleBackColor = true;
-            this.t46.Click += new System.EventHandler(this.t46_Click);
-            // 
-            // t45
-            // 
-            this.t45.BackgroundImage = global::MagoBox.Properties.Resources._45;
-            this.t45.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t45.Location = new System.Drawing.Point(126, 290);
-            this.t45.Name = "t45";
-            this.t45.Size = new System.Drawing.Size(35, 35);
-            this.t45.TabIndex = 43;
-            this.t45.UseVisualStyleBackColor = true;
-            this.t45.Click += new System.EventHandler(this.t45_Click);
-            // 
-            // t44
-            // 
-            this.t44.BackgroundImage = global::MagoBox.Properties.Resources._44;
-            this.t44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t44.Location = new System.Drawing.Point(85, 290);
-            this.t44.Name = "t44";
-            this.t44.Size = new System.Drawing.Size(35, 35);
-            this.t44.TabIndex = 42;
-            this.t44.UseVisualStyleBackColor = true;
-            this.t44.Click += new System.EventHandler(this.t44_Click);
-            // 
-            // t43
-            // 
-            this.t43.BackgroundImage = global::MagoBox.Properties.Resources._43;
-            this.t43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t43.Location = new System.Drawing.Point(44, 290);
-            this.t43.Name = "t43";
-            this.t43.Size = new System.Drawing.Size(35, 35);
-            this.t43.TabIndex = 41;
-            this.t43.UseVisualStyleBackColor = true;
-            this.t43.Click += new System.EventHandler(this.t43_Click);
-            // 
-            // t42
-            // 
-            this.t42.BackgroundImage = global::MagoBox.Properties.Resources._42;
-            this.t42.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t42.Location = new System.Drawing.Point(3, 290);
-            this.t42.Name = "t42";
-            this.t42.Size = new System.Drawing.Size(35, 35);
-            this.t42.TabIndex = 40;
-            this.t42.UseVisualStyleBackColor = true;
-            this.t42.Click += new System.EventHandler(this.t42_Click);
-            // 
-            // t41
-            // 
-            this.t41.BackgroundImage = global::MagoBox.Properties.Resources._41;
-            this.t41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t41.Location = new System.Drawing.Point(208, 249);
-            this.t41.Name = "t41";
-            this.t41.Size = new System.Drawing.Size(35, 35);
-            this.t41.TabIndex = 39;
-            this.t41.UseVisualStyleBackColor = true;
-            this.t41.Click += new System.EventHandler(this.t41_Click);
-            // 
-            // t40
-            // 
-            this.t40.BackgroundImage = global::MagoBox.Properties.Resources._40;
-            this.t40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t40.Location = new System.Drawing.Point(167, 249);
-            this.t40.Name = "t40";
-            this.t40.Size = new System.Drawing.Size(35, 35);
-            this.t40.TabIndex = 38;
-            this.t40.UseVisualStyleBackColor = true;
-            this.t40.Click += new System.EventHandler(this.t40_Click);
-            // 
-            // t39
-            // 
-            this.t39.BackgroundImage = global::MagoBox.Properties.Resources._39;
-            this.t39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t39.Location = new System.Drawing.Point(126, 249);
-            this.t39.Name = "t39";
-            this.t39.Size = new System.Drawing.Size(35, 35);
-            this.t39.TabIndex = 37;
-            this.t39.UseVisualStyleBackColor = true;
-            this.t39.Click += new System.EventHandler(this.t39_Click);
-            // 
-            // t38
-            // 
-            this.t38.BackgroundImage = global::MagoBox.Properties.Resources._38;
-            this.t38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t38.Location = new System.Drawing.Point(85, 249);
-            this.t38.Name = "t38";
-            this.t38.Size = new System.Drawing.Size(35, 35);
-            this.t38.TabIndex = 36;
-            this.t38.UseVisualStyleBackColor = true;
-            this.t38.Click += new System.EventHandler(this.t38_Click);
-            // 
-            // t37
-            // 
-            this.t37.BackgroundImage = global::MagoBox.Properties.Resources._37;
-            this.t37.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t37.Location = new System.Drawing.Point(44, 249);
-            this.t37.Name = "t37";
-            this.t37.Size = new System.Drawing.Size(35, 35);
-            this.t37.TabIndex = 35;
-            this.t37.UseVisualStyleBackColor = true;
-            this.t37.Click += new System.EventHandler(this.t37_Click);
-            // 
-            // t36
-            // 
-            this.t36.BackgroundImage = global::MagoBox.Properties.Resources._36;
-            this.t36.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t36.Location = new System.Drawing.Point(3, 249);
-            this.t36.Name = "t36";
-            this.t36.Size = new System.Drawing.Size(35, 35);
-            this.t36.TabIndex = 34;
-            this.t36.UseVisualStyleBackColor = true;
-            this.t36.Click += new System.EventHandler(this.t36_Click);
-            // 
-            // t35
-            // 
-            this.t35.BackgroundImage = global::MagoBox.Properties.Resources._35;
-            this.t35.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t35.Location = new System.Drawing.Point(208, 208);
-            this.t35.Name = "t35";
-            this.t35.Size = new System.Drawing.Size(35, 35);
-            this.t35.TabIndex = 33;
-            this.t35.UseVisualStyleBackColor = true;
-            this.t35.Click += new System.EventHandler(this.t35_Click);
-            // 
-            // t34
-            // 
-            this.t34.BackgroundImage = global::MagoBox.Properties.Resources._34;
-            this.t34.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t34.Location = new System.Drawing.Point(167, 208);
-            this.t34.Name = "t34";
-            this.t34.Size = new System.Drawing.Size(35, 35);
-            this.t34.TabIndex = 32;
-            this.t34.UseVisualStyleBackColor = true;
-            this.t34.Click += new System.EventHandler(this.t34_Click);
-            // 
-            // t33
-            // 
-            this.t33.BackgroundImage = global::MagoBox.Properties.Resources._33;
-            this.t33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t33.Location = new System.Drawing.Point(126, 208);
-            this.t33.Name = "t33";
-            this.t33.Size = new System.Drawing.Size(35, 35);
-            this.t33.TabIndex = 31;
-            this.t33.UseVisualStyleBackColor = true;
-            this.t33.Click += new System.EventHandler(this.t33_Click);
-            // 
-            // t32
-            // 
-            this.t32.BackgroundImage = global::MagoBox.Properties.Resources._32;
-            this.t32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t32.Location = new System.Drawing.Point(85, 208);
-            this.t32.Name = "t32";
-            this.t32.Size = new System.Drawing.Size(35, 35);
-            this.t32.TabIndex = 30;
-            this.t32.UseVisualStyleBackColor = true;
-            this.t32.Click += new System.EventHandler(this.t32_Click);
-            // 
-            // t31
-            // 
-            this.t31.BackgroundImage = global::MagoBox.Properties.Resources._31;
-            this.t31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t31.Location = new System.Drawing.Point(44, 208);
-            this.t31.Name = "t31";
-            this.t31.Size = new System.Drawing.Size(35, 35);
-            this.t31.TabIndex = 29;
-            this.t31.UseVisualStyleBackColor = true;
-            this.t31.Click += new System.EventHandler(this.t31_Click);
-            // 
-            // t30
-            // 
-            this.t30.BackgroundImage = global::MagoBox.Properties.Resources._30;
-            this.t30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t30.Location = new System.Drawing.Point(3, 208);
-            this.t30.Name = "t30";
-            this.t30.Size = new System.Drawing.Size(35, 35);
-            this.t30.TabIndex = 28;
-            this.t30.UseVisualStyleBackColor = true;
-            this.t30.Click += new System.EventHandler(this.t30_Click);
-            // 
-            // t29
-            // 
-            this.t29.BackgroundImage = global::MagoBox.Properties.Resources._29;
-            this.t29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t29.Location = new System.Drawing.Point(208, 167);
-            this.t29.Name = "t29";
-            this.t29.Size = new System.Drawing.Size(35, 35);
-            this.t29.TabIndex = 27;
-            this.t29.UseVisualStyleBackColor = true;
-            this.t29.Click += new System.EventHandler(this.t29_Click);
-            // 
-            // t28
-            // 
-            this.t28.BackgroundImage = global::MagoBox.Properties.Resources._28;
-            this.t28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t28.Location = new System.Drawing.Point(167, 167);
-            this.t28.Name = "t28";
-            this.t28.Size = new System.Drawing.Size(35, 35);
-            this.t28.TabIndex = 26;
-            this.t28.UseVisualStyleBackColor = true;
-            this.t28.Click += new System.EventHandler(this.t28_Click);
-            // 
-            // t27
-            // 
-            this.t27.BackgroundImage = global::MagoBox.Properties.Resources._27;
-            this.t27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t27.Location = new System.Drawing.Point(126, 167);
-            this.t27.Name = "t27";
-            this.t27.Size = new System.Drawing.Size(35, 35);
-            this.t27.TabIndex = 50;
-            this.t27.UseVisualStyleBackColor = true;
-            this.t27.Click += new System.EventHandler(this.t27_Click);
-            // 
-            // t26
-            // 
-            this.t26.BackgroundImage = global::MagoBox.Properties.Resources._26;
-            this.t26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t26.Location = new System.Drawing.Point(85, 167);
-            this.t26.Name = "t26";
-            this.t26.Size = new System.Drawing.Size(35, 35);
-            this.t26.TabIndex = 25;
-            this.t26.UseVisualStyleBackColor = true;
-            this.t26.Click += new System.EventHandler(this.t26_Click);
-            // 
-            // t25
-            // 
-            this.t25.BackgroundImage = global::MagoBox.Properties.Resources._25;
-            this.t25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t25.Location = new System.Drawing.Point(44, 167);
-            this.t25.Name = "t25";
-            this.t25.Size = new System.Drawing.Size(35, 35);
-            this.t25.TabIndex = 24;
-            this.t25.UseVisualStyleBackColor = true;
-            this.t25.Click += new System.EventHandler(this.t25_Click);
-            // 
-            // t24
-            // 
-            this.t24.BackgroundImage = global::MagoBox.Properties.Resources._24;
-            this.t24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t24.Location = new System.Drawing.Point(3, 167);
-            this.t24.Name = "t24";
-            this.t24.Size = new System.Drawing.Size(35, 35);
-            this.t24.TabIndex = 23;
-            this.t24.UseVisualStyleBackColor = true;
-            this.t24.Click += new System.EventHandler(this.t24_Click);
-            // 
-            // t23
-            // 
-            this.t23.BackgroundImage = global::MagoBox.Properties.Resources._23;
-            this.t23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t23.Location = new System.Drawing.Point(208, 126);
-            this.t23.Name = "t23";
-            this.t23.Size = new System.Drawing.Size(35, 35);
-            this.t23.TabIndex = 22;
-            this.t23.UseVisualStyleBackColor = true;
-            this.t23.Click += new System.EventHandler(this.t23_Click);
-            // 
-            // t22
-            // 
-            this.t22.BackgroundImage = global::MagoBox.Properties.Resources._22;
-            this.t22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t22.Location = new System.Drawing.Point(167, 126);
-            this.t22.Name = "t22";
-            this.t22.Size = new System.Drawing.Size(35, 35);
-            this.t22.TabIndex = 21;
-            this.t22.UseVisualStyleBackColor = true;
-            this.t22.Click += new System.EventHandler(this.t22_Click);
-            // 
-            // t21
-            // 
-            this.t21.BackgroundImage = global::MagoBox.Properties.Resources._21;
-            this.t21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t21.Location = new System.Drawing.Point(126, 126);
-            this.t21.Name = "t21";
-            this.t21.Size = new System.Drawing.Size(35, 35);
-            this.t21.TabIndex = 20;
-            this.t21.UseVisualStyleBackColor = true;
-            this.t21.Click += new System.EventHandler(this.t21_Click);
-            // 
-            // t20
-            // 
-            this.t20.BackgroundImage = global::MagoBox.Properties.Resources._20;
-            this.t20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t20.Location = new System.Drawing.Point(85, 126);
-            this.t20.Name = "t20";
-            this.t20.Size = new System.Drawing.Size(35, 35);
-            this.t20.TabIndex = 19;
-            this.t20.UseVisualStyleBackColor = true;
-            this.t20.Click += new System.EventHandler(this.t20_Click);
-            // 
-            // t19
-            // 
-            this.t19.BackgroundImage = global::MagoBox.Properties.Resources._19;
-            this.t19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t19.Location = new System.Drawing.Point(44, 126);
-            this.t19.Name = "t19";
-            this.t19.Size = new System.Drawing.Size(35, 35);
-            this.t19.TabIndex = 18;
-            this.t19.UseVisualStyleBackColor = true;
-            this.t19.Click += new System.EventHandler(this.t19_Click);
-            // 
-            // t18
-            // 
-            this.t18.BackgroundImage = global::MagoBox.Properties.Resources._18;
-            this.t18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t18.Location = new System.Drawing.Point(3, 126);
-            this.t18.Name = "t18";
-            this.t18.Size = new System.Drawing.Size(35, 35);
-            this.t18.TabIndex = 17;
-            this.t18.UseVisualStyleBackColor = true;
-            this.t18.Click += new System.EventHandler(this.t18_Click);
-            // 
-            // t17
-            // 
-            this.t17.BackgroundImage = global::MagoBox.Properties.Resources._17;
-            this.t17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t17.Location = new System.Drawing.Point(208, 85);
-            this.t17.Name = "t17";
-            this.t17.Size = new System.Drawing.Size(35, 35);
-            this.t17.TabIndex = 16;
-            this.t17.UseVisualStyleBackColor = true;
-            this.t17.Click += new System.EventHandler(this.t17_Click);
-            // 
-            // t16
-            // 
-            this.t16.BackgroundImage = global::MagoBox.Properties.Resources._16;
-            this.t16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t16.Location = new System.Drawing.Point(167, 85);
-            this.t16.Name = "t16";
-            this.t16.Size = new System.Drawing.Size(35, 35);
-            this.t16.TabIndex = 15;
-            this.t16.UseVisualStyleBackColor = true;
-            this.t16.Click += new System.EventHandler(this.t16_Click);
-            // 
-            // t15
-            // 
-            this.t15.BackgroundImage = global::MagoBox.Properties.Resources._15;
-            this.t15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t15.Location = new System.Drawing.Point(126, 85);
-            this.t15.Name = "t15";
-            this.t15.Size = new System.Drawing.Size(35, 35);
-            this.t15.TabIndex = 14;
-            this.t15.UseVisualStyleBackColor = true;
-            this.t15.Click += new System.EventHandler(this.t15_Click);
-            // 
-            // t14
-            // 
-            this.t14.BackgroundImage = global::MagoBox.Properties.Resources._14;
-            this.t14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t14.Location = new System.Drawing.Point(85, 85);
-            this.t14.Name = "t14";
-            this.t14.Size = new System.Drawing.Size(35, 35);
-            this.t14.TabIndex = 13;
-            this.t14.UseVisualStyleBackColor = true;
-            this.t14.Click += new System.EventHandler(this.t14_Click);
-            // 
-            // t13
-            // 
-            this.t13.BackgroundImage = global::MagoBox.Properties.Resources._13;
-            this.t13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t13.Location = new System.Drawing.Point(44, 85);
-            this.t13.Name = "t13";
-            this.t13.Size = new System.Drawing.Size(35, 35);
-            this.t13.TabIndex = 12;
-            this.t13.UseVisualStyleBackColor = true;
-            this.t13.Click += new System.EventHandler(this.t13_Click);
-            // 
-            // t12
-            // 
-            this.t12.BackgroundImage = global::MagoBox.Properties.Resources._12;
-            this.t12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t12.Location = new System.Drawing.Point(3, 85);
-            this.t12.Name = "t12";
-            this.t12.Size = new System.Drawing.Size(35, 35);
-            this.t12.TabIndex = 11;
-            this.t12.UseVisualStyleBackColor = true;
-            this.t12.Click += new System.EventHandler(this.t12_Click);
-            // 
-            // t11
-            // 
-            this.t11.BackgroundImage = global::MagoBox.Properties.Resources._11;
-            this.t11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t11.Location = new System.Drawing.Point(208, 44);
-            this.t11.Name = "t11";
-            this.t11.Size = new System.Drawing.Size(35, 35);
-            this.t11.TabIndex = 10;
-            this.t11.UseVisualStyleBackColor = true;
-            this.t11.Click += new System.EventHandler(this.t11_Click);
-            // 
-            // t10
-            // 
-            this.t10.BackgroundImage = global::MagoBox.Properties.Resources._10;
-            this.t10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t10.Location = new System.Drawing.Point(167, 44);
-            this.t10.Name = "t10";
-            this.t10.Size = new System.Drawing.Size(35, 35);
-            this.t10.TabIndex = 9;
-            this.t10.UseVisualStyleBackColor = true;
-            this.t10.Click += new System.EventHandler(this.t10_Click);
-            // 
-            // t9
-            // 
-            this.t9.BackgroundImage = global::MagoBox.Properties.Resources._9;
-            this.t9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t9.Location = new System.Drawing.Point(126, 44);
-            this.t9.Name = "t9";
-            this.t9.Size = new System.Drawing.Size(35, 35);
-            this.t9.TabIndex = 8;
-            this.t9.UseVisualStyleBackColor = true;
-            this.t9.Click += new System.EventHandler(this.t9_Click);
-            // 
-            // t8
-            // 
-            this.t8.BackgroundImage = global::MagoBox.Properties.Resources._8;
-            this.t8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t8.Location = new System.Drawing.Point(85, 44);
-            this.t8.Name = "t8";
-            this.t8.Size = new System.Drawing.Size(35, 35);
-            this.t8.TabIndex = 7;
-            this.t8.UseVisualStyleBackColor = true;
-            this.t8.Click += new System.EventHandler(this.t8_Click);
-            // 
-            // t7
-            // 
-            this.t7.BackgroundImage = global::MagoBox.Properties.Resources._7;
-            this.t7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t7.Location = new System.Drawing.Point(44, 44);
-            this.t7.Name = "t7";
-            this.t7.Size = new System.Drawing.Size(35, 35);
-            this.t7.TabIndex = 6;
-            this.t7.UseVisualStyleBackColor = true;
-            this.t7.Click += new System.EventHandler(this.t7_Click);
-            // 
-            // t6
-            // 
-            this.t6.BackgroundImage = global::MagoBox.Properties.Resources._6;
-            this.t6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t6.Location = new System.Drawing.Point(3, 44);
-            this.t6.Name = "t6";
-            this.t6.Size = new System.Drawing.Size(35, 35);
-            this.t6.TabIndex = 5;
-            this.t6.UseVisualStyleBackColor = true;
-            this.t6.Click += new System.EventHandler(this.t6_Click);
-            // 
-            // t5
-            // 
-            this.t5.BackgroundImage = global::MagoBox.Properties.Resources._5;
-            this.t5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t5.Location = new System.Drawing.Point(208, 3);
-            this.t5.Name = "t5";
-            this.t5.Size = new System.Drawing.Size(35, 35);
-            this.t5.TabIndex = 4;
-            this.t5.UseVisualStyleBackColor = true;
-            this.t5.Click += new System.EventHandler(this.t5_Click);
-            // 
-            // t4
-            // 
-            this.t4.BackgroundImage = global::MagoBox.Properties.Resources._4;
-            this.t4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t4.Location = new System.Drawing.Point(167, 3);
-            this.t4.Name = "t4";
-            this.t4.Size = new System.Drawing.Size(35, 35);
-            this.t4.TabIndex = 3;
-            this.t4.UseVisualStyleBackColor = true;
-            this.t4.Click += new System.EventHandler(this.t4_Click);
-            // 
-            // t3
-            // 
-            this.t3.BackgroundImage = global::MagoBox.Properties.Resources._3;
-            this.t3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t3.Location = new System.Drawing.Point(126, 3);
-            this.t3.Name = "t3";
-            this.t3.Size = new System.Drawing.Size(35, 35);
-            this.t3.TabIndex = 2;
-            this.t3.UseVisualStyleBackColor = true;
-            this.t3.Click += new System.EventHandler(this.t3_Click);
-            // 
-            // t2
-            // 
-            this.t2.BackgroundImage = global::MagoBox.Properties.Resources._2;
-            this.t2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t2.Location = new System.Drawing.Point(85, 3);
-            this.t2.Name = "t2";
-            this.t2.Size = new System.Drawing.Size(35, 35);
-            this.t2.TabIndex = 1;
-            this.t2.UseVisualStyleBackColor = true;
-            this.t2.Click += new System.EventHandler(this.t2_Click);
-            // 
-            // t1
-            // 
-            this.t1.BackgroundImage = global::MagoBox.Properties.Resources._1;
-            this.t1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t1.Location = new System.Drawing.Point(44, 3);
-            this.t1.Name = "t1";
-            this.t1.Size = new System.Drawing.Size(35, 35);
-            this.t1.TabIndex = 0;
-            this.t1.UseVisualStyleBackColor = true;
-            this.t1.Click += new System.EventHandler(this.t1_Click);
-            // 
-            // t0
-            // 
-            this.t0.BackgroundImage = global::MagoBox.Properties.Resources._0;
-            this.t0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.t0.Location = new System.Drawing.Point(3, 3);
-            this.t0.Name = "t0";
-            this.t0.Size = new System.Drawing.Size(35, 35);
-            this.t0.TabIndex = 51;
-            this.t0.UseVisualStyleBackColor = true;
-            this.t0.Click += new System.EventHandler(this.t0_Click);
             // 
             // MainForm
             // 
@@ -1531,7 +1309,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.yOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vmat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vblock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d3_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vshape)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1600,62 +1396,41 @@
         private System.Windows.Forms.ToolStripMenuItem renderItemPointsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renderBossPointsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renderEnemyPointsToolStripMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button t0;
-        private System.Windows.Forms.Button t1;
-        private System.Windows.Forms.Button t2;
-        private System.Windows.Forms.Button t3;
-        private System.Windows.Forms.Button t4;
-        private System.Windows.Forms.Button t5;
-        private System.Windows.Forms.Button t6;
-        private System.Windows.Forms.Button t7;
-        private System.Windows.Forms.Button t8;
-        private System.Windows.Forms.Button t9;
-        private System.Windows.Forms.Button t10;
-        private System.Windows.Forms.Button t11;
-        private System.Windows.Forms.Button t12;
-        private System.Windows.Forms.Button t13;
-        private System.Windows.Forms.Button t14;
-        private System.Windows.Forms.Button t15;
-        private System.Windows.Forms.Button t16;
-        private System.Windows.Forms.Button t17;
-        private System.Windows.Forms.Button t18;
-        private System.Windows.Forms.Button t19;
-        private System.Windows.Forms.Button t20;
-        private System.Windows.Forms.Button t21;
-        private System.Windows.Forms.Button t22;
-        private System.Windows.Forms.Button t23;
-        private System.Windows.Forms.Button t24;
-        private System.Windows.Forms.Button t25;
-        private System.Windows.Forms.Button t26;
-        private System.Windows.Forms.Button t27;
-        private System.Windows.Forms.Button t28;
-        private System.Windows.Forms.Button t29;
-        private System.Windows.Forms.Button t30;
-        private System.Windows.Forms.Button t31;
-        private System.Windows.Forms.Button t32;
-        private System.Windows.Forms.Button t33;
-        private System.Windows.Forms.Button t34;
-        private System.Windows.Forms.Button t35;
-        private System.Windows.Forms.Button t36;
-        private System.Windows.Forms.Button t37;
-        private System.Windows.Forms.Button t38;
-        private System.Windows.Forms.Button t39;
-        private System.Windows.Forms.Button t40;
-        private System.Windows.Forms.Button t41;
-        private System.Windows.Forms.Button t42;
-        private System.Windows.Forms.Button t43;
-        private System.Windows.Forms.Button t44;
-        private System.Windows.Forms.Button t45;
-        private System.Windows.Forms.Button t46;
-        private System.Windows.Forms.Button t47;
-        private System.Windows.Forms.Button t48;
-        private System.Windows.Forms.Button t49;
-        private System.Windows.Forms.Button t50;
-        private System.Windows.Forms.Button t51;
-        private System.Windows.Forms.Button m8;
-        private System.Windows.Forms.Button m64;
-        private System.Windows.Forms.Button m2;
+        private System.Windows.Forms.CheckBox ice;
+        private System.Windows.Forms.CheckBox spike;
+        private System.Windows.Forms.CheckBox boundary;
+        private System.Windows.Forms.NumericUpDown vmat;
+        private System.Windows.Forms.NumericUpDown vautomove;
+        private System.Windows.Forms.NumericUpDown vblock;
+        private System.Windows.Forms.NumericUpDown d3_4;
+        private System.Windows.Forms.NumericUpDown d3_3;
+        private System.Windows.Forms.NumericUpDown d3_2;
+        private System.Windows.Forms.NumericUpDown d3_1;
+        private System.Windows.Forms.NumericUpDown d2_4;
+        private System.Windows.Forms.NumericUpDown d2_3;
+        private System.Windows.Forms.NumericUpDown d2_2;
+        private System.Windows.Forms.NumericUpDown d2_1;
+        private System.Windows.Forms.NumericUpDown d1_4;
+        private System.Windows.Forms.NumericUpDown d1_3;
+        private System.Windows.Forms.NumericUpDown d1_2;
+        private System.Windows.Forms.NumericUpDown d1_1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown tiy;
+        private System.Windows.Forms.NumericUpDown tix;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox lava;
+        private System.Windows.Forms.CheckBox water;
+        private System.Windows.Forms.CheckBox ladder;
+        private System.Windows.Forms.NumericUpDown vshape;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }
 
