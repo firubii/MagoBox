@@ -29,26 +29,6 @@ namespace RDLLVL
         public List<Boss> Bosses = new List<Boss>();
         public List<Enemy> Enemies = new List<Enemy>();
 
-        public Level()
-        {
-            Height = 0;
-            Width = 0;
-            Background = 0;
-            Tileset = 0;
-            StageData = new Stage();
-            TileBlock = new List<Block>();
-            TileCollision = new List<Collision>();
-            BLandDecoration = new List<Decoration>();
-            MLandDecoration = new List<Decoration>();
-            FLandDecoration = new List<Decoration>();
-            DecorationChunk4 = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-            Unk_Decoration = new List<byte>();
-            Objects = new List<Object>();
-            SpecialItems = new List<SpecialItem>();
-            Items = new List<Item>();
-            Bosses = new List<Boss>();
-            Enemies = new List<Enemy>();
-        }
         public Level(string filePath)
         {
             using (BigEndianBinaryReader reader = new BigEndianBinaryReader(new FileStream(filePath, FileMode.Open)))
