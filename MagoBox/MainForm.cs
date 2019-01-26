@@ -153,11 +153,43 @@ namespace MagoBox
             this.Enabled = true;
             this.Text = $"MagoBox - {filePath}";
             this.Cursor = Cursors.Arrow;
+            saveToolStripMenuItem.Enabled = true;
+            saveAsToolStripMenuItem.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewLevel newlvl = new NewLevel();
+            if (newlvl.ShowDialog() == DialogResult.OK)
+            {
+                a = true;
+
+                objList.Items.Clear();
+                specItemList.Items.Clear();
+                itemList.Items.Clear();
+                bossList.Items.Clear();
+                enemyList.Items.Clear();
+
+                level = newlvl.level;
+
+                camera.pos = Vector2.Zero;
+                camera.zoom = 1.1;
+                RefreshObjectLists();
+
+                sizeH.Value = level.Height;
+                sizeW.Value = level.Width;
+
+                this.Text = $"MagoBox - New Level";
+
+                saveAsToolStripMenuItem.Enabled = true;
+
+                a = false;
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -682,6 +714,29 @@ namespace MagoBox
 
         private void glControl_MouseMove(object sender, MouseEventArgs e)
         {
+            if (level != null)
+            {
+                Vector2 p = ConvertMouseCoords(new Vector2(e.X, e.Y));
+                if (p.X > level.Width - 1)
+                {
+                    tileX = level.Width - 1;
+                }
+                else if (p.X > 0)
+                {
+                    tileX = (uint)p.X;
+                }
+                else { tileX = 0; }
+                if (p.Y < -(level.Height - 1))
+                {
+                    tileY = level.Height - 1;
+                }
+                else if (p.Y < 0)
+                {
+                    tileY = (uint)-p.Y + 1;
+                }
+                else { tileY = 0; }
+            }
+
             if (e.Button == MouseButtons.Right)
             {
                 float moveSpeed = 1.0f/(float)camera.zoom;
@@ -694,26 +749,6 @@ namespace MagoBox
             {
                 if (tool == 2)
                 {
-                    Vector2 p = ConvertMouseCoords(new Vector2(e.X, e.Y));
-                    if (p.X > level.Width - 1)
-                    {
-                        tileX = level.Width - 1;
-                    }
-                    else if (p.X > 0)
-                    {
-                        tileX = (uint)p.X;
-                    }
-                    else { tileX = 0; }
-                    if (p.Y < -(level.Height - 1))
-                    {
-                        tileY = level.Height - 1;
-                    }
-                    else if (p.Y < 0)
-                    {
-                        tileY = (uint)-p.Y + 1;
-                    }
-                    else { tileY = 0; }
-
                     int ix = (int)((tileY * level.Width) + tileX);
 
                     if (editCol.Checked)
