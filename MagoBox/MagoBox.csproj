@@ -228,6 +228,7 @@
     <None Include="Resources\blocks\super4x4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Resources\draw.png" />
     <Content Include="Resources\move.png" />
     <None Include="Resources\modifiers\ladder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -75,7 +75,6 @@
             this.addEnemy = new System.Windows.Forms.Button();
             this.enemyList = new System.Windows.Forms.ListBox();
             this.glControl = new OpenTK.GLControl();
-            this.draw = new System.Windows.Forms.Button();
             this.resetCamera = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,42 +85,51 @@
             this.yCoord = new System.Windows.Forms.NumericUpDown();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.editDeco = new System.Windows.Forms.CheckBox();
+            this.editBlock = new System.Windows.Forms.CheckBox();
+            this.editCol = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.d3_4 = new System.Windows.Forms.NumericUpDown();
+            this.d1_1 = new System.Windows.Forms.NumericUpDown();
+            this.d3_3 = new System.Windows.Forms.NumericUpDown();
+            this.d1_2 = new System.Windows.Forms.NumericUpDown();
+            this.d3_2 = new System.Windows.Forms.NumericUpDown();
+            this.d1_3 = new System.Windows.Forms.NumericUpDown();
+            this.d3_1 = new System.Windows.Forms.NumericUpDown();
+            this.d1_4 = new System.Windows.Forms.NumericUpDown();
+            this.d2_4 = new System.Windows.Forms.NumericUpDown();
+            this.d2_1 = new System.Windows.Forms.NumericUpDown();
+            this.d2_3 = new System.Windows.Forms.NumericUpDown();
+            this.d2_2 = new System.Windows.Forms.NumericUpDown();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.vblock = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.vshape = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.vmat = new System.Windows.Forms.NumericUpDown();
+            this.vautomove = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pick = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sizeH = new System.Windows.Forms.NumericUpDown();
+            this.sizeW = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.blockImg = new System.Windows.Forms.PictureBox();
+            this.colImg = new System.Windows.Forms.PictureBox();
             this.ice = new System.Windows.Forms.CheckBox();
             this.spike = new System.Windows.Forms.CheckBox();
             this.boundary = new System.Windows.Forms.CheckBox();
-            this.vmat = new System.Windows.Forms.NumericUpDown();
-            this.vautomove = new System.Windows.Forms.NumericUpDown();
-            this.vblock = new System.Windows.Forms.NumericUpDown();
-            this.d3_4 = new System.Windows.Forms.NumericUpDown();
-            this.d3_3 = new System.Windows.Forms.NumericUpDown();
-            this.d3_2 = new System.Windows.Forms.NumericUpDown();
-            this.d3_1 = new System.Windows.Forms.NumericUpDown();
-            this.d2_4 = new System.Windows.Forms.NumericUpDown();
-            this.d2_3 = new System.Windows.Forms.NumericUpDown();
-            this.d2_2 = new System.Windows.Forms.NumericUpDown();
-            this.d2_1 = new System.Windows.Forms.NumericUpDown();
-            this.d1_4 = new System.Windows.Forms.NumericUpDown();
-            this.d1_3 = new System.Windows.Forms.NumericUpDown();
-            this.d1_2 = new System.Windows.Forms.NumericUpDown();
-            this.d1_1 = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tiy = new System.Windows.Forms.NumericUpDown();
-            this.tix = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lava = new System.Windows.Forms.CheckBox();
-            this.water = new System.Windows.Forms.CheckBox();
             this.ladder = new System.Windows.Forms.CheckBox();
-            this.vshape = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.water = new System.Windows.Forms.CheckBox();
+            this.lava = new System.Windows.Forms.CheckBox();
+            this.draw = new System.Windows.Forms.Button();
             this.move = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -137,24 +145,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.yOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vmat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vblock)).BeginInit();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.d3_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tix)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vblock)).BeginInit();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vshape)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vmat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colImg)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -669,17 +683,9 @@
             this.glControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.glControl_MouseUp);
             this.glControl.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.glControl_MouseWheel);
             // 
-            // draw
-            // 
-            this.draw.Location = new System.Drawing.Point(372, 31);
-            this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(31, 31);
-            this.draw.TabIndex = 5;
-            this.draw.UseVisualStyleBackColor = true;
-            // 
             // resetCamera
             // 
-            this.resetCamera.Location = new System.Drawing.Point(409, 31);
+            this.resetCamera.Location = new System.Drawing.Point(446, 31);
             this.resetCamera.Name = "resetCamera";
             this.resetCamera.Size = new System.Drawing.Size(82, 31);
             this.resetCamera.TabIndex = 6;
@@ -773,122 +779,281 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Collision",
             "Decoration"});
-            this.comboBox1.Location = new System.Drawing.Point(497, 40);
+            this.comboBox1.Location = new System.Drawing.Point(534, 40);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 27;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ice);
-            this.groupBox2.Controls.Add(this.spike);
-            this.groupBox2.Controls.Add(this.boundary);
-            this.groupBox2.Controls.Add(this.vmat);
-            this.groupBox2.Controls.Add(this.vautomove);
-            this.groupBox2.Controls.Add(this.vblock);
-            this.groupBox2.Controls.Add(this.d3_4);
-            this.groupBox2.Controls.Add(this.d3_3);
-            this.groupBox2.Controls.Add(this.d3_2);
-            this.groupBox2.Controls.Add(this.d3_1);
-            this.groupBox2.Controls.Add(this.d2_4);
-            this.groupBox2.Controls.Add(this.d2_3);
-            this.groupBox2.Controls.Add(this.d2_2);
-            this.groupBox2.Controls.Add(this.d2_1);
-            this.groupBox2.Controls.Add(this.d1_4);
-            this.groupBox2.Controls.Add(this.d1_3);
-            this.groupBox2.Controls.Add(this.d1_2);
-            this.groupBox2.Controls.Add(this.d1_1);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.tiy);
-            this.groupBox2.Controls.Add(this.tix);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.lava);
-            this.groupBox2.Controls.Add(this.water);
-            this.groupBox2.Controls.Add(this.ladder);
-            this.groupBox2.Controls.Add(this.vshape);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.editDeco);
+            this.groupBox2.Controls.Add(this.editBlock);
+            this.groupBox2.Controls.Add(this.editCol);
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(856, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 464);
+            this.groupBox2.Size = new System.Drawing.Size(270, 414);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Collision Shapes";
+            this.groupBox2.Text = "Tile Data Editor";
             // 
-            // ice
+            // editDeco
             // 
-            this.ice.AutoSize = true;
-            this.ice.Location = new System.Drawing.Point(68, 121);
-            this.ice.Name = "ice";
-            this.ice.Size = new System.Drawing.Size(41, 17);
-            this.ice.TabIndex = 90;
-            this.ice.Text = "Ice";
-            this.ice.UseVisualStyleBackColor = true;
-            this.ice.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            this.editDeco.AutoSize = true;
+            this.editDeco.Location = new System.Drawing.Point(7, 392);
+            this.editDeco.Name = "editDeco";
+            this.editDeco.Size = new System.Drawing.Size(104, 17);
+            this.editDeco.TabIndex = 96;
+            this.editDeco.Text = "Edit Decorations";
+            this.editDeco.UseVisualStyleBackColor = true;
             // 
-            // spike
+            // editBlock
             // 
-            this.spike.AutoSize = true;
-            this.spike.Location = new System.Drawing.Point(68, 98);
-            this.spike.Name = "spike";
-            this.spike.Size = new System.Drawing.Size(53, 17);
-            this.spike.TabIndex = 89;
-            this.spike.Text = "Spike";
-            this.spike.UseVisualStyleBackColor = true;
-            this.spike.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            this.editBlock.AutoSize = true;
+            this.editBlock.Location = new System.Drawing.Point(7, 369);
+            this.editBlock.Name = "editBlock";
+            this.editBlock.Size = new System.Drawing.Size(79, 17);
+            this.editBlock.TabIndex = 95;
+            this.editBlock.Text = "Edit Blocks";
+            this.editBlock.UseVisualStyleBackColor = true;
             // 
-            // boundary
+            // editCol
             // 
-            this.boundary.AutoSize = true;
-            this.boundary.Location = new System.Drawing.Point(68, 75);
-            this.boundary.Name = "boundary";
-            this.boundary.Size = new System.Drawing.Size(71, 17);
-            this.boundary.TabIndex = 88;
-            this.boundary.Text = "Boundary";
-            this.boundary.UseVisualStyleBackColor = true;
-            this.boundary.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            this.editCol.AutoSize = true;
+            this.editCol.Location = new System.Drawing.Point(7, 346);
+            this.editCol.Name = "editCol";
+            this.editCol.Size = new System.Drawing.Size(90, 17);
+            this.editCol.TabIndex = 94;
+            this.editCol.Text = "Edit Collisions";
+            this.editCol.UseVisualStyleBackColor = true;
             // 
-            // vmat
+            // groupBox5
             // 
-            this.vmat.Location = new System.Drawing.Point(58, 161);
-            this.vmat.Maximum = new decimal(new int[] {
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.d3_4);
+            this.groupBox5.Controls.Add(this.d1_1);
+            this.groupBox5.Controls.Add(this.d3_3);
+            this.groupBox5.Controls.Add(this.d1_2);
+            this.groupBox5.Controls.Add(this.d3_2);
+            this.groupBox5.Controls.Add(this.d1_3);
+            this.groupBox5.Controls.Add(this.d3_1);
+            this.groupBox5.Controls.Add(this.d1_4);
+            this.groupBox5.Controls.Add(this.d2_4);
+            this.groupBox5.Controls.Add(this.d2_1);
+            this.groupBox5.Controls.Add(this.d2_3);
+            this.groupBox5.Controls.Add(this.d2_2);
+            this.groupBox5.Location = new System.Drawing.Point(7, 248);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(255, 95);
+            this.groupBox5.TabIndex = 93;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Decoration Data";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "BLand";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 42);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 71;
+            this.label12.Text = "MLand";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 68);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 13);
+            this.label13.TabIndex = 72;
+            this.label13.Text = "FLand";
+            // 
+            // d3_4
+            // 
+            this.d3_4.Location = new System.Drawing.Point(187, 66);
+            this.d3_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d3_4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.d3_4.Name = "d3_4";
+            this.d3_4.Size = new System.Drawing.Size(39, 20);
+            this.d3_4.TabIndex = 84;
+            // 
+            // d1_1
+            // 
+            this.d1_1.Location = new System.Drawing.Point(52, 14);
+            this.d1_1.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.vmat.Name = "vmat";
-            this.vmat.Size = new System.Drawing.Size(69, 20);
-            this.vmat.TabIndex = 87;
-            this.vmat.ValueChanged += new System.EventHandler(this.UpdateTile);
+            this.d1_1.Name = "d1_1";
+            this.d1_1.Size = new System.Drawing.Size(39, 20);
+            this.d1_1.TabIndex = 73;
             // 
-            // vautomove
+            // d3_3
             // 
-            this.vautomove.Location = new System.Drawing.Point(5, 202);
-            this.vautomove.Maximum = new decimal(new int[] {
-            3,
+            this.d3_3.Location = new System.Drawing.Point(142, 66);
+            this.d3_3.Maximum = new decimal(new int[] {
+            255,
             0,
             0,
             0});
-            this.vautomove.Minimum = new decimal(new int[] {
-            3,
+            this.d3_3.Name = "d3_3";
+            this.d3_3.Size = new System.Drawing.Size(39, 20);
+            this.d3_3.TabIndex = 83;
+            // 
+            // d1_2
+            // 
+            this.d1_2.Location = new System.Drawing.Point(97, 14);
+            this.d1_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d1_2.Name = "d1_2";
+            this.d1_2.Size = new System.Drawing.Size(39, 20);
+            this.d1_2.TabIndex = 74;
+            // 
+            // d3_2
+            // 
+            this.d3_2.Location = new System.Drawing.Point(97, 66);
+            this.d3_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d3_2.Name = "d3_2";
+            this.d3_2.Size = new System.Drawing.Size(39, 20);
+            this.d3_2.TabIndex = 82;
+            // 
+            // d1_3
+            // 
+            this.d1_3.Location = new System.Drawing.Point(142, 14);
+            this.d1_3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d1_3.Name = "d1_3";
+            this.d1_3.Size = new System.Drawing.Size(39, 20);
+            this.d1_3.TabIndex = 75;
+            // 
+            // d3_1
+            // 
+            this.d3_1.Location = new System.Drawing.Point(52, 66);
+            this.d3_1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d3_1.Name = "d3_1";
+            this.d3_1.Size = new System.Drawing.Size(39, 20);
+            this.d3_1.TabIndex = 81;
+            // 
+            // d1_4
+            // 
+            this.d1_4.Location = new System.Drawing.Point(187, 14);
+            this.d1_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d1_4.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             -2147483648});
-            this.vautomove.Name = "vautomove";
-            this.vautomove.Size = new System.Drawing.Size(51, 20);
-            this.vautomove.TabIndex = 86;
-            this.vautomove.ValueChanged += new System.EventHandler(this.UpdateTile);
+            this.d1_4.Name = "d1_4";
+            this.d1_4.Size = new System.Drawing.Size(39, 20);
+            this.d1_4.TabIndex = 76;
+            // 
+            // d2_4
+            // 
+            this.d2_4.Location = new System.Drawing.Point(187, 40);
+            this.d2_4.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.d2_4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.d2_4.Name = "d2_4";
+            this.d2_4.Size = new System.Drawing.Size(39, 20);
+            this.d2_4.TabIndex = 80;
+            // 
+            // d2_1
+            // 
+            this.d2_1.Location = new System.Drawing.Point(52, 40);
+            this.d2_1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_1.Name = "d2_1";
+            this.d2_1.Size = new System.Drawing.Size(39, 20);
+            this.d2_1.TabIndex = 77;
+            // 
+            // d2_3
+            // 
+            this.d2_3.Location = new System.Drawing.Point(142, 40);
+            this.d2_3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_3.Name = "d2_3";
+            this.d2_3.Size = new System.Drawing.Size(39, 20);
+            this.d2_3.TabIndex = 79;
+            // 
+            // d2_2
+            // 
+            this.d2_2.Location = new System.Drawing.Point(97, 40);
+            this.d2_2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.d2_2.Name = "d2_2";
+            this.d2_2.Size = new System.Drawing.Size(39, 20);
+            this.d2_2.TabIndex = 78;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.blockImg);
+            this.groupBox4.Controls.Add(this.vblock);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Location = new System.Drawing.Point(7, 192);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(255, 53);
+            this.groupBox4.TabIndex = 92;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Block Data";
             // 
             // vblock
             // 
-            this.vblock.Location = new System.Drawing.Point(5, 228);
+            this.vblock.Location = new System.Drawing.Point(6, 22);
             this.vblock.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -907,338 +1072,105 @@
             0,
             0,
             -2147483648});
-            this.vblock.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d3_4
-            // 
-            this.d3_4.Location = new System.Drawing.Point(187, 304);
-            this.d3_4.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.d3_4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.d3_4.Name = "d3_4";
-            this.d3_4.Size = new System.Drawing.Size(39, 20);
-            this.d3_4.TabIndex = 84;
-            this.d3_4.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d3_3
-            // 
-            this.d3_3.Location = new System.Drawing.Point(142, 304);
-            this.d3_3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d3_3.Name = "d3_3";
-            this.d3_3.Size = new System.Drawing.Size(39, 20);
-            this.d3_3.TabIndex = 83;
-            this.d3_3.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d3_2
-            // 
-            this.d3_2.Location = new System.Drawing.Point(97, 304);
-            this.d3_2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d3_2.Name = "d3_2";
-            this.d3_2.Size = new System.Drawing.Size(39, 20);
-            this.d3_2.TabIndex = 82;
-            this.d3_2.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d3_1
-            // 
-            this.d3_1.Location = new System.Drawing.Point(52, 304);
-            this.d3_1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d3_1.Name = "d3_1";
-            this.d3_1.Size = new System.Drawing.Size(39, 20);
-            this.d3_1.TabIndex = 81;
-            this.d3_1.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d2_4
-            // 
-            this.d2_4.Location = new System.Drawing.Point(187, 278);
-            this.d2_4.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.d2_4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.d2_4.Name = "d2_4";
-            this.d2_4.Size = new System.Drawing.Size(39, 20);
-            this.d2_4.TabIndex = 80;
-            this.d2_4.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d2_3
-            // 
-            this.d2_3.Location = new System.Drawing.Point(142, 278);
-            this.d2_3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d2_3.Name = "d2_3";
-            this.d2_3.Size = new System.Drawing.Size(39, 20);
-            this.d2_3.TabIndex = 79;
-            this.d2_3.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d2_2
-            // 
-            this.d2_2.Location = new System.Drawing.Point(97, 278);
-            this.d2_2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d2_2.Name = "d2_2";
-            this.d2_2.Size = new System.Drawing.Size(39, 20);
-            this.d2_2.TabIndex = 78;
-            this.d2_2.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d2_1
-            // 
-            this.d2_1.Location = new System.Drawing.Point(52, 278);
-            this.d2_1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d2_1.Name = "d2_1";
-            this.d2_1.Size = new System.Drawing.Size(39, 20);
-            this.d2_1.TabIndex = 77;
-            this.d2_1.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d1_4
-            // 
-            this.d1_4.Location = new System.Drawing.Point(187, 252);
-            this.d1_4.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.d1_4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.d1_4.Name = "d1_4";
-            this.d1_4.Size = new System.Drawing.Size(39, 20);
-            this.d1_4.TabIndex = 76;
-            this.d1_4.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d1_3
-            // 
-            this.d1_3.Location = new System.Drawing.Point(142, 252);
-            this.d1_3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d1_3.Name = "d1_3";
-            this.d1_3.Size = new System.Drawing.Size(39, 20);
-            this.d1_3.TabIndex = 75;
-            this.d1_3.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d1_2
-            // 
-            this.d1_2.Location = new System.Drawing.Point(97, 252);
-            this.d1_2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d1_2.Name = "d1_2";
-            this.d1_2.Size = new System.Drawing.Size(39, 20);
-            this.d1_2.TabIndex = 74;
-            this.d1_2.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // d1_1
-            // 
-            this.d1_1.Location = new System.Drawing.Point(52, 252);
-            this.d1_1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.d1_1.Name = "d1_1";
-            this.d1_1.Size = new System.Drawing.Size(39, 20);
-            this.d1_1.TabIndex = 73;
-            this.d1_1.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 306);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 13);
-            this.label13.TabIndex = 72;
-            this.label13.Text = "FLand";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 280);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 71;
-            this.label12.Text = "MLand";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 254);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 70;
-            this.label11.Text = "BLand";
-            // 
-            // tiy
-            // 
-            this.tiy.Location = new System.Drawing.Point(6, 395);
-            this.tiy.Name = "tiy";
-            this.tiy.Size = new System.Drawing.Size(50, 20);
-            this.tiy.TabIndex = 69;
-            this.tiy.ValueChanged += new System.EventHandler(this.tSel_ValueChanged);
-            // 
-            // tix
-            // 
-            this.tix.Location = new System.Drawing.Point(6, 369);
-            this.tix.Name = "tix";
-            this.tix.Size = new System.Drawing.Size(50, 20);
-            this.tix.TabIndex = 68;
-            this.tix.ValueChanged += new System.EventHandler(this.tSel_ValueChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(62, 230);
+            this.label10.Location = new System.Drawing.Point(63, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 67;
             this.label10.Text = "Block";
             // 
-            // label9
+            // groupBox3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(62, 397);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 13);
-            this.label9.TabIndex = 66;
-            this.label9.Text = "Y";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 371);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 13);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "X";
-            // 
-            // lava
-            // 
-            this.lava.AutoSize = true;
-            this.lava.Location = new System.Drawing.Point(6, 121);
-            this.lava.Name = "lava";
-            this.lava.Size = new System.Drawing.Size(50, 17);
-            this.lava.TabIndex = 64;
-            this.lava.Text = "Lava";
-            this.lava.UseVisualStyleBackColor = true;
-            this.lava.CheckedChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // water
-            // 
-            this.water.AutoSize = true;
-            this.water.Location = new System.Drawing.Point(6, 98);
-            this.water.Name = "water";
-            this.water.Size = new System.Drawing.Size(55, 17);
-            this.water.TabIndex = 63;
-            this.water.Text = "Water";
-            this.water.UseVisualStyleBackColor = true;
-            this.water.CheckedChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // ladder
-            // 
-            this.ladder.AutoSize = true;
-            this.ladder.Location = new System.Drawing.Point(6, 75);
-            this.ladder.Name = "ladder";
-            this.ladder.Size = new System.Drawing.Size(59, 17);
-            this.ladder.TabIndex = 62;
-            this.ladder.Text = "Ladder";
-            this.ladder.UseVisualStyleBackColor = true;
-            this.ladder.CheckedChanged += new System.EventHandler(this.UpdateTile);
+            this.groupBox3.Controls.Add(this.colImg);
+            this.groupBox3.Controls.Add(this.vshape);
+            this.groupBox3.Controls.Add(this.ice);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.spike);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.boundary);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.vmat);
+            this.groupBox3.Controls.Add(this.ladder);
+            this.groupBox3.Controls.Add(this.vautomove);
+            this.groupBox3.Controls.Add(this.water);
+            this.groupBox3.Controls.Add(this.lava);
+            this.groupBox3.Location = new System.Drawing.Point(7, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(255, 173);
+            this.groupBox3.TabIndex = 91;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Collision Data";
             // 
             // vshape
             // 
-            this.vshape.Location = new System.Drawing.Point(58, 36);
+            this.vshape.Location = new System.Drawing.Point(6, 19);
             this.vshape.Maximum = new decimal(new int[] {
             51,
             0,
             0,
             0});
             this.vshape.Name = "vshape";
-            this.vshape.Size = new System.Drawing.Size(69, 20);
+            this.vshape.Size = new System.Drawing.Size(73, 20);
             this.vshape.TabIndex = 61;
-            this.vshape.ValueChanged += new System.EventHandler(this.UpdateTile);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(62, 204);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 13);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "Auto Move Speed";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(133, 163);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 13);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Collision Material";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(133, 38);
+            this.label5.Location = new System.Drawing.Point(81, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 58;
             this.label5.Text = "Collision Shape";
             // 
-            // button3
+            // label7
             // 
-            this.button3.Location = new System.Drawing.Point(6, 144);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 57;
-            this.button3.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(81, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Collision Material";
             // 
-            // button1
+            // label8
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 56;
-            this.button1.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(81, 143);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 13);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Auto Move Speed";
+            // 
+            // vmat
+            // 
+            this.vmat.Location = new System.Drawing.Point(6, 115);
+            this.vmat.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.vmat.Name = "vmat";
+            this.vmat.Size = new System.Drawing.Size(73, 20);
+            this.vmat.TabIndex = 87;
+            // 
+            // vautomove
+            // 
+            this.vautomove.Location = new System.Drawing.Point(6, 141);
+            this.vautomove.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.vautomove.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            -2147483648});
+            this.vautomove.Name = "vautomove";
+            this.vautomove.Size = new System.Drawing.Size(73, 20);
+            this.vautomove.TabIndex = 86;
             // 
             // label6
             // 
@@ -1249,6 +1181,197 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Offset";
             // 
+            // pick
+            // 
+            this.pick.Location = new System.Drawing.Point(409, 31);
+            this.pick.Name = "pick";
+            this.pick.Size = new System.Drawing.Size(31, 31);
+            this.pick.TabIndex = 30;
+            this.pick.UseVisualStyleBackColor = true;
+            this.pick.Click += new System.EventHandler(this.pick_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.sizeW);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.sizeH);
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Location = new System.Drawing.Point(856, 443);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(270, 49);
+            this.groupBox6.TabIndex = 31;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Level Size";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Height";
+            // 
+            // sizeH
+            // 
+            this.sizeH.Location = new System.Drawing.Point(51, 21);
+            this.sizeH.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
+            this.sizeH.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sizeH.Name = "sizeH";
+            this.sizeH.Size = new System.Drawing.Size(78, 20);
+            this.sizeH.TabIndex = 1;
+            this.sizeH.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sizeH.ValueChanged += new System.EventHandler(this.UpdateLevelSize);
+            // 
+            // sizeW
+            // 
+            this.sizeW.Location = new System.Drawing.Point(179, 22);
+            this.sizeW.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
+            this.sizeW.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sizeW.Name = "sizeW";
+            this.sizeW.Size = new System.Drawing.Size(78, 20);
+            this.sizeW.TabIndex = 3;
+            this.sizeW.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sizeW.ValueChanged += new System.EventHandler(this.UpdateLevelSize);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(135, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Width";
+            // 
+            // blockImg
+            // 
+            this.blockImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.blockImg.Image = global::MagoBox.Properties.Resources._0;
+            this.blockImg.Location = new System.Drawing.Point(100, 16);
+            this.blockImg.Name = "blockImg";
+            this.blockImg.Size = new System.Drawing.Size(30, 30);
+            this.blockImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.blockImg.TabIndex = 92;
+            this.blockImg.TabStop = false;
+            // 
+            // colImg
+            // 
+            this.colImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.colImg.Image = global::MagoBox.Properties.Resources._0;
+            this.colImg.Location = new System.Drawing.Point(164, 15);
+            this.colImg.Name = "colImg";
+            this.colImg.Size = new System.Drawing.Size(30, 30);
+            this.colImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.colImg.TabIndex = 91;
+            this.colImg.TabStop = false;
+            // 
+            // ice
+            // 
+            this.ice.AutoSize = true;
+            this.ice.Image = global::MagoBox.Properties.Resources.ice;
+            this.ice.Location = new System.Drawing.Point(89, 92);
+            this.ice.Name = "ice";
+            this.ice.Size = new System.Drawing.Size(58, 17);
+            this.ice.TabIndex = 90;
+            this.ice.Text = "Ice";
+            this.ice.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ice.UseVisualStyleBackColor = true;
+            // 
+            // spike
+            // 
+            this.spike.AutoSize = true;
+            this.spike.Image = global::MagoBox.Properties.Resources.spike;
+            this.spike.Location = new System.Drawing.Point(89, 69);
+            this.spike.Name = "spike";
+            this.spike.Size = new System.Drawing.Size(70, 17);
+            this.spike.TabIndex = 89;
+            this.spike.Text = "Spike";
+            this.spike.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.spike.UseVisualStyleBackColor = true;
+            // 
+            // boundary
+            // 
+            this.boundary.AutoSize = true;
+            this.boundary.Image = global::MagoBox.Properties.Resources.boundary;
+            this.boundary.Location = new System.Drawing.Point(89, 46);
+            this.boundary.Name = "boundary";
+            this.boundary.Size = new System.Drawing.Size(88, 17);
+            this.boundary.TabIndex = 88;
+            this.boundary.Text = "Boundary";
+            this.boundary.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.boundary.UseVisualStyleBackColor = true;
+            // 
+            // ladder
+            // 
+            this.ladder.AutoSize = true;
+            this.ladder.Image = global::MagoBox.Properties.Resources.ladder;
+            this.ladder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ladder.Location = new System.Drawing.Point(7, 46);
+            this.ladder.Name = "ladder";
+            this.ladder.Size = new System.Drawing.Size(76, 17);
+            this.ladder.TabIndex = 62;
+            this.ladder.Text = "Ladder";
+            this.ladder.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ladder.UseVisualStyleBackColor = true;
+            // 
+            // water
+            // 
+            this.water.AutoSize = true;
+            this.water.Image = global::MagoBox.Properties.Resources.water;
+            this.water.Location = new System.Drawing.Point(7, 69);
+            this.water.Name = "water";
+            this.water.Size = new System.Drawing.Size(72, 17);
+            this.water.TabIndex = 63;
+            this.water.Text = "Water";
+            this.water.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.water.UseVisualStyleBackColor = true;
+            // 
+            // lava
+            // 
+            this.lava.AutoSize = true;
+            this.lava.Image = global::MagoBox.Properties.Resources.lava;
+            this.lava.Location = new System.Drawing.Point(7, 92);
+            this.lava.Name = "lava";
+            this.lava.Size = new System.Drawing.Size(67, 17);
+            this.lava.TabIndex = 64;
+            this.lava.Text = "Lava";
+            this.lava.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.lava.UseVisualStyleBackColor = true;
+            // 
+            // draw
+            // 
+            this.draw.Image = global::MagoBox.Properties.Resources.draw;
+            this.draw.Location = new System.Drawing.Point(372, 31);
+            this.draw.Name = "draw";
+            this.draw.Size = new System.Drawing.Size(31, 31);
+            this.draw.TabIndex = 5;
+            this.draw.UseVisualStyleBackColor = true;
+            this.draw.Click += new System.EventHandler(this.draw_Click);
+            // 
             // move
             // 
             this.move.BackgroundImage = global::MagoBox.Properties.Resources.move;
@@ -1257,6 +1380,7 @@
             this.move.Size = new System.Drawing.Size(31, 31);
             this.move.TabIndex = 4;
             this.move.UseVisualStyleBackColor = true;
+            this.move.Click += new System.EventHandler(this.move_Click);
             // 
             // select
             // 
@@ -1266,12 +1390,15 @@
             this.select.Size = new System.Drawing.Size(31, 31);
             this.select.TabIndex = 3;
             this.select.UseVisualStyleBackColor = true;
+            this.select.Click += new System.EventHandler(this.select_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 504);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.pick);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.comboBox1);
@@ -1310,24 +1437,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.yCoord)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vmat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vblock)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.d3_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d3_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.d2_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d2_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d1_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tix)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vblock)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vshape)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vmat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vautomove)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blockImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1417,11 +1554,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown tiy;
-        private System.Windows.Forms.NumericUpDown tix;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox lava;
         private System.Windows.Forms.CheckBox water;
         private System.Windows.Forms.CheckBox ladder;
@@ -1429,8 +1562,20 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox editCol;
+        private System.Windows.Forms.CheckBox editDeco;
+        private System.Windows.Forms.CheckBox editBlock;
+        private System.Windows.Forms.PictureBox colImg;
+        private System.Windows.Forms.PictureBox blockImg;
+        private System.Windows.Forms.Button pick;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.NumericUpDown sizeW;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown sizeH;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -41,7 +41,8 @@ namespace MagoBox
 
         int tool;
 
-        int tile;
+        uint tileX;
+        uint tileY;
 
         public MainForm()
         {
@@ -168,31 +169,35 @@ namespace MagoBox
             open.Title = "Open Level File";
             if (open.ShowDialog() == DialogResult.OK)
             {
+                a = true;
+
                 filePath = open.FileName;
                 objList.Items.Clear();
                 specItemList.Items.Clear();
                 itemList.Items.Clear();
                 bossList.Items.Clear();
                 enemyList.Items.Clear();
-                tix.Value = 0;
-                tiy.Value = 0;
 
                 this.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
                 this.Text = $"MagoBox - Opening {filePath}...";
+
                 level = new Level(open.FileName);
                 
-                tix.Maximum = level.Width - 1;
-                tiy.Maximum = level.Height - 1;
                 camera.pos = Vector2.Zero;
                 camera.zoom = 1.1;
                 RefreshObjectLists();
+
+                sizeH.Value = level.Height;
+                sizeW.Value = level.Width;
 
                 this.Text = $"MagoBox - {filePath}";
                 this.Cursor = Cursors.Arrow;
                 this.Enabled = true;
                 saveToolStripMenuItem.Enabled = true;
                 saveAsToolStripMenuItem.Enabled = true;
+
+                a = false;
             }
         }
 
@@ -409,7 +414,7 @@ namespace MagoBox
 
                 if (true)
                 {
-                    Vector2 v = new Vector2((int)tix.Value * 16f, -(int)tiy.Value * 16f);
+                    Vector2 v = new Vector2(tileX * 16f, -tileY * 16f);
                     renderer.Draw(texIds[52], v, vec_scale, 17, 17);
                 }
 
@@ -496,7 +501,7 @@ namespace MagoBox
 
             glControl.SwapBuffers();
         }
-
+        
         private void glControl_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -507,22 +512,257 @@ namespace MagoBox
             }
             else if (e.Button == MouseButtons.Left)
             {
-                if (tool == 2)
+                if (tool == 0)
                 {
 
+                }
+                else if (tool == 1)
+                {
+
+                }
+                else if (tool == 2)
+                {
+                    Vector2 p = ConvertMouseCoords(new Vector2(e.X, e.Y));
+                    if (p.X > level.Width - 1)
+                    {
+                        tileX = level.Width - 1;
+                    }
+                    else if (p.X > 0)
+                    {
+                        tileX = (uint)p.X;
+                    }
+                    else { tileX = 0; }
+                    if (p.Y < -(level.Height - 1))
+                    {
+                        tileY = level.Height - 1;
+                    }
+                    else if (p.Y < 0)
+                    {
+                        tileY = (uint)-p.Y + 1;
+                    }
+                    else { tileY = 0; }
+
+                    int ix = (int)((tileY * level.Width) + tileX);
+
+                    if (editCol.Checked)
+                    {
+                        Collision c = level.TileCollision[ix];
+                        c.Shape = (byte)vshape.Value;
+                        c.Modifier = 0;
+                        if (ladder.Checked) c.Modifier += 2;
+                        if (boundary.Checked) c.Modifier += 4;
+                        if (water.Checked) c.Modifier += 8;
+                        if (spike.Checked) c.Modifier += 16;
+                        if (ice.Checked) c.Modifier += 32;
+                        if (lava.Checked) c.Modifier += 64;
+                        c.Material = (byte)vmat.Value;
+                        c.AutoMoveSpeed = (sbyte)vautomove.Value;
+                        level.TileCollision[ix] = c;
+                    }
+                    if (editBlock.Checked)
+                    {
+                        Block b = level.TileBlock[ix];
+                        b.ID = (short)vblock.Value;
+                        level.TileBlock[ix] = b;
+                    }
+                    if (editDeco.Checked)
+                    {
+                        Decoration ml = level.MLandDecoration[ix];
+                        Decoration bl = level.BLandDecoration[ix];
+                        Decoration fl = level.FLandDecoration[ix];
+
+                        bl.Unk_1 = (byte)d1_1.Value;
+                        bl.Unk_2 = (byte)d1_2.Value;
+                        bl.Unk_3 = (byte)d1_3.Value;
+                        bl.MovingTerrainID = (sbyte)d1_4.Value;
+
+                        ml.Unk_1 = (byte)d2_1.Value;
+                        ml.Unk_2 = (byte)d2_2.Value;
+                        ml.Unk_3 = (byte)d2_3.Value;
+                        ml.MovingTerrainID = (sbyte)d2_4.Value;
+
+                        fl.Unk_1 = (byte)d3_1.Value;
+                        fl.Unk_2 = (byte)d3_2.Value;
+                        fl.Unk_3 = (byte)d3_3.Value;
+                        fl.MovingTerrainID = (sbyte)d3_4.Value;
+
+                        level.MLandDecoration[ix] = bl;
+                        level.BLandDecoration[ix] = ml;
+                        level.FLandDecoration[ix] = fl;
+                    }
+                }
+                else if (tool == 3)
+                {
+                    Vector2 p = ConvertMouseCoords(new Vector2(e.X, e.Y));
+                    if (p.X > level.Width - 1)
+                    {
+                        tileX = level.Width - 1;
+                    }
+                    else if (p.X > 0)
+                    {
+                        tileX = (uint)p.X;
+                    }
+                    else { tileX = 0; }
+                    if (p.Y < -(level.Height - 1))
+                    {
+                        tileY = level.Height - 1;
+                    }
+                    else if (p.Y < 0)
+                    {
+                        tileY = (uint)-p.Y + 1;
+                    }
+                    else { tileY = 0; }
+
+                    int ix = (int)((tileY * level.Width) + tileX);
+                    Collision c = level.TileCollision[ix];
+                    Block b = level.TileBlock[ix];
+                    Decoration ml = level.MLandDecoration[ix];
+                    Decoration bl = level.BLandDecoration[ix];
+                    Decoration fl = level.FLandDecoration[ix];
+
+                    vshape.Value = c.Shape;
+                    if ((c.Modifier & (1 << 1)) != 0)
+                    {
+                        ladder.Checked = true;
+                    }
+                    else { ladder.Checked = false; }
+
+                    if ((c.Modifier & (1 << 2)) != 0)
+                    {
+                        boundary.Checked = true;
+                    }
+                    else { boundary.Checked = false; }
+
+                    if ((c.Modifier & (1 << 3)) != 0)
+                    {
+                        water.Checked = true;
+                    }
+                    else { water.Checked = false; }
+
+                    if ((c.Modifier & (1 << 4)) != 0)
+                    {
+                        spike.Checked = true;
+                    }
+                    else { spike.Checked = false; }
+
+                    if ((c.Modifier & (1 << 5)) != 0)
+                    {
+                        ice.Checked = true;
+                    }
+                    else { ice.Checked = false; }
+
+                    if ((c.Modifier & (1 << 6)) != 0)
+                    {
+                        lava.Checked = true;
+                    }
+                    else { lava.Checked = false; }
+
+                    vmat.Value = c.Material;
+                    vautomove.Value = c.AutoMoveSpeed;
+
+                    vblock.Value = b.ID;
+
+                    d1_1.Value = bl.Unk_1;
+                    d1_2.Value = bl.Unk_2;
+                    d1_3.Value = bl.Unk_3;
+                    d1_4.Value = bl.MovingTerrainID;
+
+                    d2_1.Value = ml.Unk_1;
+                    d2_2.Value = ml.Unk_2;
+                    d2_3.Value = ml.Unk_3;
+                    d2_4.Value = ml.MovingTerrainID;
+
+                    d3_1.Value = fl.Unk_1;
+                    d3_2.Value = fl.Unk_2;
+                    d3_3.Value = fl.Unk_3;
+                    d3_4.Value = fl.MovingTerrainID;
                 }
             }
         }
 
         private void glControl_MouseMove(object sender, MouseEventArgs e)
         {
-            if (moveCam)
+            if (e.Button == MouseButtons.Right)
             {
                 float moveSpeed = 1.0f/(float)camera.zoom;
                 camera.pos.X += (mouseX - e.X) * moveSpeed;
                 camera.pos.Y += (mouseY - e.Y) * moveSpeed;
                 mouseX = e.X;
                 mouseY = e.Y;
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                if (tool == 2)
+                {
+                    Vector2 p = ConvertMouseCoords(new Vector2(e.X, e.Y));
+                    if (p.X > level.Width - 1)
+                    {
+                        tileX = level.Width - 1;
+                    }
+                    else if (p.X > 0)
+                    {
+                        tileX = (uint)p.X;
+                    }
+                    else { tileX = 0; }
+                    if (p.Y < -(level.Height - 1))
+                    {
+                        tileY = level.Height - 1;
+                    }
+                    else if (p.Y < 0)
+                    {
+                        tileY = (uint)-p.Y + 1;
+                    }
+                    else { tileY = 0; }
+
+                    int ix = (int)((tileY * level.Width) + tileX);
+
+                    if (editCol.Checked)
+                    {
+                        Collision c = level.TileCollision[ix];
+                        c.Shape = (byte)vshape.Value;
+                        c.Modifier = 0;
+                        if (ladder.Checked) c.Modifier += 2;
+                        if (boundary.Checked) c.Modifier += 4;
+                        if (water.Checked) c.Modifier += 8;
+                        if (spike.Checked) c.Modifier += 16;
+                        if (ice.Checked) c.Modifier += 32;
+                        if (lava.Checked) c.Modifier += 64;
+                        c.Material = (byte)vmat.Value;
+                        c.AutoMoveSpeed = (sbyte)vautomove.Value;
+                        level.TileCollision[ix] = c;
+                    }
+                    if (editBlock.Checked)
+                    {
+                        Block b = level.TileBlock[ix];
+                        b.ID = (short)vblock.Value;
+                        level.TileBlock[ix] = b;
+                    }
+                    if (editDeco.Checked)
+                    {
+                        Decoration ml = level.MLandDecoration[ix];
+                        Decoration bl = level.BLandDecoration[ix];
+                        Decoration fl = level.FLandDecoration[ix];
+
+                        bl.Unk_1 = (byte)d1_1.Value;
+                        bl.Unk_2 = (byte)d1_2.Value;
+                        bl.Unk_3 = (byte)d1_3.Value;
+                        bl.MovingTerrainID = (sbyte)d1_4.Value;
+
+                        ml.Unk_1 = (byte)d2_1.Value;
+                        ml.Unk_2 = (byte)d2_2.Value;
+                        ml.Unk_3 = (byte)d2_3.Value;
+                        ml.MovingTerrainID = (sbyte)d2_4.Value;
+
+                        fl.Unk_1 = (byte)d3_1.Value;
+                        fl.Unk_2 = (byte)d3_2.Value;
+                        fl.Unk_3 = (byte)d3_3.Value;
+                        fl.MovingTerrainID = (sbyte)d3_4.Value;
+
+                        level.MLandDecoration[ix] = bl;
+                        level.BLandDecoration[ix] = ml;
+                        level.FLandDecoration[ix] = fl;
+                    }
+                }
             }
         }
 
@@ -563,12 +803,116 @@ namespace MagoBox
             }
         }
 
+        private void select_Click(object sender, EventArgs e)
+        {
+            tool = 0;
+            select.Enabled = false;
+            move.Enabled = true;
+            draw.Enabled = true;
+            pick.Enabled = true;
+        }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            tool = 1;
+            select.Enabled = true;
+            move.Enabled = false;
+            draw.Enabled = true;
+            pick.Enabled = true;
+        }
+
+        private void draw_Click(object sender, EventArgs e)
+        {
+            tool = 2;
+            select.Enabled = true;
+            move.Enabled = true;
+            draw.Enabled = false;
+            pick.Enabled = true;
+        }
+
+        private void pick_Click(object sender, EventArgs e)
+        {
+            tool = 3;
+            select.Enabled = true;
+            move.Enabled = true;
+            draw.Enabled = true;
+            pick.Enabled = false;
+        }
+
         private void resetCamera_Click(object sender, EventArgs e)
         {
             camera.zoom = 1.1;
             //Move Camera into Level Bounds
             camera.pos.X = Math.Max(0, Math.Min(level.Width*15 , camera.pos.X));
             camera.pos.Y = Math.Max(-level.Height*15, Math.Min(0, camera.pos.Y));
+        }
+
+        private void UpdateLevelSize(object sender, EventArgs e)
+        {
+            if (!a)
+            {
+                Collision c = new Collision();
+                Block b = new Block();
+                Decoration d = new Decoration();
+                b.ID = -1;
+                d.Unk_1 = 255;
+                d.Unk_2 = 255;
+                d.Unk_3 = 0;
+                d.MovingTerrainID = -1;
+
+                if (sizeW.Value > level.Width)
+                {
+                    for (int h = 0; h < sizeH.Value; h++)
+                    {
+                        level.TileCollision.Insert(((h * (int)level.Width) + (int)level.Width) + h, c);
+                        level.TileBlock.Insert(((h * (int)level.Width) + (int)level.Width) + h, b);
+                        level.BLandDecoration.Insert(((h * (int)level.Width) + (int)level.Width) + h, d);
+                        level.MLandDecoration.Insert(((h * (int)level.Width) + (int)level.Width) + h, d);
+                        level.FLandDecoration.Insert(((h * (int)level.Width) + (int)level.Width) + h, d);
+                    }
+                    level.Width = (uint)sizeW.Value;
+                }
+                else if (sizeW.Value < level.Width)
+                {
+                    for (int h = 0; h < sizeH.Value - 1; h++)
+                    {
+                        level.TileCollision.RemoveAt(((h * (int)level.Width) + (int)level.Width) - h);
+                        level.TileBlock.RemoveAt(((h * (int)level.Width) + (int)level.Width) - h);
+                        level.BLandDecoration.RemoveAt(((h * (int)level.Width) + (int)level.Width) - h);
+                        level.MLandDecoration.RemoveAt(((h * (int)level.Width) + (int)level.Width) - h);
+                        level.FLandDecoration.RemoveAt(((h * (int)level.Width) + (int)level.Width) - h);
+                    }
+                    level.Width = (uint)sizeW.Value;
+                }
+                else if (sizeH.Value > level.Height)
+                {
+                    for (int w = 0; w < level.Width; w++)
+                    {
+                        level.TileCollision.Add(c);
+                        level.TileBlock.Add(b);
+                        level.BLandDecoration.Add(d);
+                        level.MLandDecoration.Add(d);
+                        level.FLandDecoration.Add(d);
+                    }
+                    level.Height = (uint)sizeH.Value;
+                }
+                else if (sizeH.Value < level.Height)
+                {
+                    level.TileCollision.RemoveRange((int)((level.Height - 1) * (int)level.Width), (int)level.Width);
+                    level.TileBlock.RemoveRange((int)((level.Height - 1) * (int)level.Width), (int)level.Width);
+                    level.BLandDecoration.RemoveRange((int)((level.Height - 1) * (int)level.Width), (int)level.Width);
+                    level.MLandDecoration.RemoveRange((int)((level.Height - 1) * (int)level.Width), (int)level.Width);
+                    level.FLandDecoration.RemoveRange((int)((level.Height - 1) * (int)level.Width), (int)level.Width);
+                    level.Height = (uint)sizeH.Value;
+                }
+            }
+        }
+
+        private Vector2 ConvertMouseCoords(Vector2 i)
+        {
+            i -= new Vector2(glControl.Width, glControl.Height) / 2f;
+            i /= (float)camera.zoom;
+            return (camera.pos + i)/16f;
         }
 
         bool a;
@@ -765,11 +1109,6 @@ namespace MagoBox
             {
                 UpdateCoords();
             }
-        }
-
-        private void m64_Click(object sender, EventArgs e)
-        {
-            tile = 54;
         }
 
         private void addObj_Click(object sender, EventArgs e)
@@ -1046,118 +1385,6 @@ namespace MagoBox
                     level.Background = settings.background;
                     level.Tileset = settings.tileset;
                 }
-            }
-        }
-
-        private void tSel_ValueChanged(object sender, EventArgs e)
-        {
-            a = true;
-            int i = (int)tiy.Value * (int)level.Width + (int)tix.Value;
-            vshape.Value = level.TileCollision[i].Shape;
-
-            if ((level.TileCollision[i].Modifier & (1 << 1)) != 0)
-            {
-                ladder.Checked = true;
-            }
-            else { ladder.Checked = false; }
-
-            if ((level.TileCollision[i].Modifier & (1 << 2)) != 0)
-            {
-                boundary.Checked = true;
-            }
-            else { boundary.Checked = false; }
-
-            if ((level.TileCollision[i].Modifier & (1 << 3)) != 0)
-            {
-                water.Checked = true;
-            }
-            else { water.Checked = false; }
-
-            if ((level.TileCollision[i].Modifier & (1 << 4)) != 0)
-            {
-                spike.Checked = true;
-            }
-            else { spike.Checked = false; }
-
-            if ((level.TileCollision[i].Modifier & (1 << 5)) != 0)
-            {
-                ice.Checked = true;
-            }
-            else { ice.Checked = false; }
-
-            if ((level.TileCollision[i].Modifier & (1 << 6)) != 0)
-            {
-                lava.Checked = true;
-            }
-            else { lava.Checked = false; }
-
-            vmat.Value = level.TileCollision[i].Material;
-
-            vautomove.Value = level.TileCollision[i].AutoMoveSpeed;
-
-            vblock.Value = level.TileBlock[i].ID;
-
-            d1_1.Value = level.BLandDecoration[i].Unk_1;
-            d1_2.Value = level.BLandDecoration[i].Unk_2;
-            d1_3.Value = level.BLandDecoration[i].Unk_3;
-            d1_4.Value = level.BLandDecoration[i].MovingTerrainID;
-
-            d2_1.Value = level.MLandDecoration[i].Unk_1;
-            d2_2.Value = level.MLandDecoration[i].Unk_2;
-            d2_3.Value = level.MLandDecoration[i].Unk_3;
-            d2_4.Value = level.MLandDecoration[i].MovingTerrainID;
-
-            d3_1.Value = level.FLandDecoration[i].Unk_1;
-            d3_2.Value = level.FLandDecoration[i].Unk_2;
-            d3_3.Value = level.FLandDecoration[i].Unk_3;
-            d3_4.Value = level.FLandDecoration[i].MovingTerrainID;
-            a = false;
-        }
-
-        private void UpdateTile(object sender, EventArgs e)
-        {
-            if (!a)
-            {
-                int i = (int)tiy.Value * (int)level.Width + (int)tix.Value;
-                Collision c = level.TileCollision[i];
-                Block b = level.TileBlock[i];
-                Decoration ml = level.MLandDecoration[i];
-                Decoration bl = level.BLandDecoration[i];
-                Decoration fl = level.FLandDecoration[i];
-
-                c.Shape = (byte)vshape.Value;
-                c.Modifier = 0;
-                if (ladder.Checked) c.Modifier += 2;
-                if (boundary.Checked) c.Modifier += 4;
-                if (water.Checked) c.Modifier += 8;
-                if (spike.Checked) c.Modifier += 16;
-                if (ice.Checked) c.Modifier += 32;
-                if (lava.Checked) c.Modifier += 64;
-                c.Material = (byte)vmat.Value;
-                c.AutoMoveSpeed = (sbyte)vautomove.Value;
-
-                b.ID = (short)vblock.Value;
-
-                bl.Unk_1 = (byte)d1_1.Value;
-                bl.Unk_2 = (byte)d1_2.Value;
-                bl.Unk_3 = (byte)d1_3.Value;
-                bl.MovingTerrainID = (sbyte)d1_4.Value;
-
-                ml.Unk_1 = (byte)d2_1.Value;
-                ml.Unk_2 = (byte)d2_2.Value;
-                ml.Unk_3 = (byte)d2_3.Value;
-                ml.MovingTerrainID = (sbyte)d2_4.Value;
-
-                fl.Unk_1 = (byte)d3_1.Value;
-                fl.Unk_2 = (byte)d3_2.Value;
-                fl.Unk_3 = (byte)d3_3.Value;
-                fl.MovingTerrainID = (sbyte)d3_4.Value;
-
-                level.TileCollision[i] = c;
-                level.TileBlock[i] = b;
-                level.MLandDecoration[i] = ml;
-                level.BLandDecoration[i] = bl;
-                level.FLandDecoration[i] = fl;
             }
         }
     }
