@@ -22,7 +22,6 @@ namespace RDLLVL
         public List<Decoration> MLandDecoration = new List<Decoration>();
         public List<Decoration> FLandDecoration = new List<Decoration>();
         public byte[] DecorationChunk4;
-        public List<byte> Unk_Decoration = new List<byte>();
         public List<Object> Objects = new List<Object>();
         public List<SpecialItem> SpecialItems = new List<SpecialItem>();
         public List<Item> Items = new List<Item>();
@@ -31,10 +30,10 @@ namespace RDLLVL
 
         public Level()
         {
-            Height = 0;
-            Width = 0;
-            Background = 0;
-            Tileset = 0;
+            Height = 1;
+            Width = 1;
+            Background = 1;
+            Tileset = 1;
             StageData = new Stage();
             TileBlock = new List<Block>();
             TileCollision = new List<Collision>();
@@ -42,7 +41,6 @@ namespace RDLLVL
             MLandDecoration = new List<Decoration>();
             FLandDecoration = new List<Decoration>();
             DecorationChunk4 = new byte[] { 0x00, 0x00, 0x00, 0x00 };
-            Unk_Decoration = new List<byte>();
             Objects = new List<Object>();
             SpecialItems = new List<SpecialItem>();
             Items = new List<Item>();

@@ -14,10 +14,21 @@ namespace MagoBox
     public partial class NewLevel : Form
     {
         public Level level;
+        Objects objs = new Objects();
 
         public NewLevel()
         {
             InitializeComponent();
+        }
+
+        private void NewLevel_Load(object sender, EventArgs e)
+        {
+            bg.Items.AddRange(objs.DecorationList.Values.ToArray());
+            tileset.Items.AddRange(objs.DecorationList.Values.ToArray());
+            bgm.Items.AddRange(objs.BGMList.ToArray());
+            bg.SelectedIndex = 0;
+            tileset.SelectedIndex = 0;
+            bgm.SelectedIndex = 0;
         }
 
         private void createLevel_Click(object sender, EventArgs e)
@@ -44,6 +55,10 @@ namespace MagoBox
                 level.MLandDecoration.Add(d);
                 level.FLandDecoration.Add(d);
             }
+
+            level.Background = objs.DecorationList.FirstOrDefault(x => x.Value == bg.Text).Key;
+            level.Tileset = objs.DecorationList.FirstOrDefault(x => x.Value == tileset.Text).Key;
+            level.StageData.BGM = bgm.Text;
 
             DialogResult = DialogResult.OK;
         }
