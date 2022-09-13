@@ -288,15 +288,29 @@ namespace MagoBox
             blockTexIds.Add(18, texturing.LoadTexture("Resources/blocks/bomb.png"));
             blockTexIds.Add(19, texturing.LoadTexture("Resources/blocks/bomb_chain.png"));
             blockTexIds.Add(20, texturing.LoadTexture("Resources/blocks/bomb_chain_invisible.png"));
+            blockTexIds.Add(21, texturing.LoadTexture("Resources/blocks/bomb_chain_generate.png"));
+            blockTexIds.Add(24, texturing.LoadTexture("Resources/blocks/stone_reverseT.png"));
+            blockTexIds.Add(25, texturing.LoadTexture("Resources/blocks/stone_T.png"));
+            blockTexIds.Add(26, texturing.LoadTexture("Resources/blocks/stone_L_stair.png"));
+            blockTexIds.Add(27, texturing.LoadTexture("Resources/blocks/stone3x1.png"));
+            blockTexIds.Add(28, texturing.LoadTexture("Resources/blocks/stone1x3.png"));
+            blockTexIds.Add(29, texturing.LoadTexture("Resources/blocks/stone2x4x4x2.png"));
             blockTexIds.Add(30, texturing.LoadTexture("Resources/blocks/breakable.png"));
+            blockTexIds.Add(31, texturing.LoadTexture("Resources/blocks/stone_R_stair.png"));
             blockTexIds.Add(32, texturing.LoadTexture("Resources/blocks/fire.png"));
             blockTexIds.Add(33, texturing.LoadTexture("Resources/blocks/falling.png"));
+            blockTexIds.Add(34, texturing.LoadTexture("Resources/blocks/metal.png"));
             blockTexIds.Add(36, texturing.LoadTexture("Resources/blocks/ice.png"));
+            blockTexIds.Add(38, texturing.LoadTexture("Resources/blocks/snow.png"));
+            blockTexIds.Add(39, texturing.LoadTexture("Resources/blocks/snow.png"));
+            blockTexIds.Add(40, texturing.LoadTexture("Resources/blocks/snow.png"));
+            blockTexIds.Add(41, texturing.LoadTexture("Resources/blocks/gold2x2.png"));
             blockTexIds.Add(47, texturing.LoadTexture("Resources/blocks/metal_falling.png"));
             blockTexIds.Add(48, texturing.LoadTexture("Resources/blocks/super.png"));
             blockTexIds.Add(49, texturing.LoadTexture("Resources/blocks/super1x2.png"));
             blockTexIds.Add(50, texturing.LoadTexture("Resources/blocks/super2x2.png"));
             blockTexIds.Add(52, texturing.LoadTexture("Resources/blocks/super4x2.png"));
+            blockTexIds.Add(53, texturing.LoadTexture("Resources/blocks/gold3x3.png"));
             blockTexIds.Add(55, texturing.LoadTexture("Resources/blocks/super_top.png"));
             blockTexIds.Add(56, texturing.LoadTexture("Resources/blocks/super_top2x2.png"));
             blockTexIds.Add(57, texturing.LoadTexture("Resources/blocks/super4x4.png"));
@@ -380,17 +394,25 @@ namespace MagoBox
                                 {
                                     renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 17, 33);
                                 }
+                                else if (b.ID == 7 || b.ID == 41 ) //2x2
+                                {
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 33, 33);
+                                }
                                 else if (b.ID == 52) //4x2
                                 {
                                     renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 16f), vec_scale, 65, 33);
                                 }
-                                else if (b.ID == 57) //4x4
+                                else if (b.ID == 29 || b.ID == 57) //4x4
                                 {
                                     renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 48f), vec_scale, 65, 65);
                                 }
-                                else if (b.ID == 58) //3x3
+                                else if (b.ID == 5 || b.ID == 24 || b.ID == 26 || b.ID == 27 || b.ID == 28 || b.ID == 31 || b.ID == 53 || b.ID == 58) //3x3
                                 {
                                     renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 32f), vec_scale, 49, 49);
+                                }
+                                else if (b.ID == 25) //3x-2
+                                {
+                                    renderer.Draw(blockTexIds[b.ID], v - new Vector2(0, 0f), vec_scale, 49, 33);
                                 }
                                 else if (blockTexIds.ContainsKey(b.ID))
                                 {
@@ -793,8 +815,8 @@ namespace MagoBox
                         fl.Unk_3 = (byte)d3_3.Value;
                         fl.MovingTerrainID = (sbyte)d3_4.Value;
 
-                        level.MLandDecoration[ix] = bl;
-                        level.BLandDecoration[ix] = ml;
+                        level.MLandDecoration[ix] = ml;
+                        level.BLandDecoration[ix] = bl;
                         level.FLandDecoration[ix] = fl;
                     }
                 }
